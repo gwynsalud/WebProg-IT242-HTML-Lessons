@@ -6,5 +6,10 @@ body {
 h1 {
   background-color: #CD5E77;
   color: aliceblue;
-  margin-left: 20px;
+  text-align: center;
+  font-family: Georgia, serif;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
 }
