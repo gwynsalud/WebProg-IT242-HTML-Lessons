@@ -1,14 +1,32 @@
-.container {
+/* .container {
   display: flex;
   flex-wrap: wrap;
   background-color: DodgerBlue;
 }
  
 .container div {
-  background-color: #f1f1f1;
+  background-color: #F4C2C2;
   width: 100px;
   margin: 10px;
   padding: 10px;
   text-align: center;  
   font-size: 30px;
+} */
+
+.column {
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+}
+
+/* Middle column */
+.column.middle {
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
 }
