@@ -34,3 +34,8 @@
   gap: 10px;
   margin-top: 10px;
 }
+
+.gallery img {
+  width: 100px;
+  height: 100px;
+}
