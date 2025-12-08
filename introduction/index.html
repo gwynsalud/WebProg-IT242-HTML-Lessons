@@ -5,48 +5,86 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .pink-light { background-color: #f8c8dc; }
+  .pink-dark { background-color: #fa4e79; }
+  </style>
 </head>
 <body>
 
-<div class="container-fluid mt-3">
+<div class="p-5 text-white text-center pink-dark">
   <h1>Personal Profile Web Page</h1>
   <h2>About Me</h2>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md text-white" style="background-color: #f8c8dc;">
-        Name: Gwyneth Salud<br>
-        Nickname: Gwen
-      </div>
-      <div class="col-md text-white" style="background-color: #fa4e79;">
-        Education / Achievements<br>
-        Course: Bachelor of Science in Information Technology
-      </div>
-      <div class="col-md text-white" style="background-color: #f8c8dc;">
-        IT Experience:<br>
-        Programming Languages - Python, Java, HTML, and CSS<br>
-        Development Platform - OutSystems<br>
-        Gaming - Mobile and PC
-      </div>
-      <div class="col-md text-white" style="background-color: #fa4e79;">
-        Hobbies & Interests: Crochet, Puzzles, Gaming, and Watching Movies<br>
-        Goals In Life / Dream: My main goal in life and dream is to live comfortably (physically, emotionally, mentally, and financially).
-      </div>
-    </div>  
-  </div>
 </div>
 
-<div class="container-fluid mt-3">
-  <h3>Picture Gallery</h3>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md text-white">
-        <img src="https://i.redd.it/3gasngpgajwa1.jpg" alt="Cute Dog" width="200" height="250">
+    <a class="navbar-brand" href="#">My Profile</a>
+  </div>
+</nav>
+
+<div class="row g-3 mt-2">
+  <div class="col-md-3">
+    <div class="p-3 text-white rounded pink-light">
+      <h5>Basic Info</h5>
+      Name: Gwyneth Salud<br>
+      Nickname: Gwen
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="p-3 text-white rounded pink-dark">
+      <h5>Education</h5>
+      Course: Bachelor of Science in Information Technology<br>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+      <div class="p-3 text-white rounded pink-light">
+        <h5>IT Experience</h5>
+        Programming Languages - Python, Java, HTML, and CSS<br>
+        Development Platform - OutSystems<br>
+        Gaming (Mobile & PC)
       </div>
-      <div class="col-md text-white">
-        <img src="https://i.pinimg.com/736x/b9/a1/9d/b9a19deccd6b027daa98b3c494683a05.jpg" alt="Cute Puppy" width="200" height="250">
+    </div>
+
+    <div class="col-md-3">
+      <div class="p-3 text-white rounded pink-dark">
+        <h5>Interests</h5>
+        Hobbies & Interests:<br>
+        Crochet, Puzzles, Gaming, and Watching Movies<br>
+        Goals In Life / Dream:<br> 
+        My main goal in life and dream is to live comfortably (physically, emotionally, mentally, and financially).
       </div>
     </div>
   </div>
+
+  <div class="mt-5">
+    <h3>Picture Gallery</h3>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://i.redd.it/3gasngpgajwa1.jpg" class="card-img-top img-fluid" alt="Cute Dog">
+          <div class="card-body">
+            <p class="card-text">Cute Dog</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://i.pinimg.com/736x/b9/a1/9d/b9a19deccd6b027daa98b3c494683a05.jpg" class="card-img-top img-fluid" alt="Cute Puppy">
+          <div class="card-body">
+            <p class="card-text">Cute Puppy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 </body>
