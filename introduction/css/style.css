@@ -4,16 +4,31 @@
   color: #ffffff;
 }
 
-/* ===== Character Selection ===== */
-.character {
+/* ===== Character Selection (Full Screen) ===== */
+#characters {
+  background-color: #161b22;
+  color: #ffffff;
+}
+
+/* Profile cards */
+.character-profile {
+  cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.character.unlocked:hover {
+.character-profile.unlocked:hover {
   transform: scale(1.05);
 }
 
-.character.locked {
+.character-profile.locked {
   opacity: 0.5;
   filter: grayscale(100%);
+  cursor: not-allowed;
 }
+
+/* Character body preview */
+.character-body {
+  max-height: 70vh;
+  object-fit: contain;
+}
+
