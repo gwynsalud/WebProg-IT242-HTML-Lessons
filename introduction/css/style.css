@@ -36,3 +36,15 @@
   max-height: 100%;
   object-fit: contain;
 }
+
+/* Locked state */
+.character-profile.locked {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+/* Hover effect for unlocked */
+.character-profile.unlocked:hover {
+  transform: scale(1.05);
+}
