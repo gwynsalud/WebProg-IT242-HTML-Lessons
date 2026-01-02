@@ -10,41 +10,119 @@
   color: #ffffff;
 }
 
-/* ===== Character Card Size Control ===== */
+/* ===== 1. Global RPG Settings ===== */
+:root {
+  --pixel-bg: #212529;   /* Dark background */
+  --pixel-card: #2f3542; /* Card background */
+  --pixel-gold: #e1b12c; /* Selection color */
+  --pixel-white: #f1f2f6;
+}
+
+body {
+  /* Optional: Ensures images stay crisp globally */
+  image-rendering: pixelated; 
+}
+
+/* ===== 2. Typography ===== */
+.rpg-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem; /* Keep it readable */
+  color: var(--pixel-white);
+  text-shadow: 2px 2px 0px #000; /* Hard shadow for pop */
+  line-height: 1.5;
+}
+
+/* ===== 3. Character Card Overrides ===== */
 .character-profile {
   width: clamp(120px, 18vw, 160px);
   aspect-ratio: 1 / 1;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   margin: auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+  /* Reset Bootstrap Card Styles */
+  background-color: var(--pixel-card);
+  border: none; 
+  border-radius: 0 !important; /* KILL THE ROUNDED CORNERS */
+  
+  /* The "Pixel Border" Trick using box-shadow */
+  box-shadow: 
+    -4px 0 0 0 black,
+    4px 0 0 0 black,
+    0 -4px 0 0 black,
+    0 4px 0 0 black;
+  
+  position: relative; /* Needed for the hand cursor */
+  transition: transform 0.1s steps(2); /* "Snappy" animation, not smooth */
 }
 
+/* Content inside the card */
 .profile-img-wrapper {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem;
+  padding: 0.5rem;
+  overflow: hidden;
 }
 
 .profile-img-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%; /* Give it some breathing room inside the border */
+  max-height: 90%;
   object-fit: contain;
+  image-rendering: pixelated; /* CRITICAL for pixel art */
 }
 
-/* Locked state */
+/* Text Label Styling */
+.rpg-card-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--pixel-white);
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* ===== 4. States (Locked vs Unlocked vs Active) ===== */
+
+/* Locked: Dark and dimmed */
 .character-profile.locked {
-  opacity: 0.5;
-  filter: grayscale(100%);
-  cursor: not-allowed;
+  background-color: #1e272e;
+  opacity: 0.8;
+  filter: grayscale(100%) contrast(120%);
 }
 
-/* Hover effect for unlocked */
+/* Unlocked (Hover State) */
 .character-profile.unlocked:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px); /* Moves up by pixels */
+  background-color: #57606f;
+  cursor: pointer;
+}
+
+/* Active / Selected State */
+.character-profile.active {
+  background-color: #3742fa; /* Classic RPG Blue */
+  /* Gold Border Effect */
+  box-shadow: 
+    -4px 0 0 0 var(--pixel-gold),
+    4px 0 0 0 var(--pixel-gold),
+    0 -4px 0 0 var(--pixel-gold),
+    0 4px 0 0 var(--pixel-gold);
+}
+
+/* ===== 5. The "Finger" Pointer (Pure CSS) ===== */
+/* This adds a little triangle pointer to the active card */
+.character-profile.active::after {
+  content: "▼";
+  font-family: 'Press Start 2P'; /* Use a pixel font or symbol */
+  color: var(--pixel-gold);
+  position: absolute;
+  top: -25px; /* Floats above the card */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  animation: bounce 1s infinite steps(2);
+}
+
+@keyframes bounce {
+  0%, 100% { top: -25px; }
+  50% { top: -30px; }
 }
