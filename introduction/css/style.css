@@ -32,11 +32,23 @@ body {
   line-height: 1.5;
 }
 
+/* The Grid Container */
+.character-grid {
+  display: grid;
+  /* Create 2 equal columns */
+  grid-template-columns: repeat(2, 1fr); 
+  /* This ensures horizontal and vertical gaps are EXACTLY 10px */
+  gap: 10px; 
+  /* Center the grid within its parent */
+  justify-items: center;
+  align-items: center;
+}
+
 /* ===== 3. Character Card Overrides ===== */
-.character-profile {
-  width: clamp(140px, 25vw, 220px);
+.character-profile.card {
+  width: clamp(140px, 20vw, 180px) !important;
   aspect-ratio: 1 / 1;
-  margin: auto;
+  margin: 0;
   
   /* Reset Bootstrap Card Styles */
   background-color: #2f3542;
@@ -45,12 +57,13 @@ body {
   
   /* The "Pixel Border" Trick using box-shadow */
   box-shadow: 
-    -5px 0 0 0 black,
-    5px 0 0 0 black,
-    0 -5px 0 0 black,
-    0 5px 0 0 black !important;
+    -4px 0 0 0 black,
+    4px 0 0 0 black,
+    0 -4px 0 0 black,
+    0 4px 0 0 black !important;
   
   position: relative; /* Needed for the hand cursor */
+  display: flex;
   transition: transform 0.1s steps(2); /* "Snappy" animation, not smooth */
 }
 
@@ -74,10 +87,11 @@ body {
 /* Text Label Styling */
 .rpg-card-label {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-align: center;
+  margin-top: auto;
   color: var(--pixel-white);
-  padding-bottom: 5px;
+  padding-bottom: 8px;
   text-transform: uppercase;
 }
 
