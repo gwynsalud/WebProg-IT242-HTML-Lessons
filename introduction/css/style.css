@@ -150,3 +150,87 @@ body {
   0%, 100% { top: -25px; }
   50% { top: -30px; }
 }
+
+/* 1. The Preview Window (The "Stage") */
+.character-preview-window {
+  background-color: #2f3542 !important; /* Matches your cards */
+  padding: 20px;
+  position: relative;
+  
+  /* Thick Pixel Border */
+  box-shadow: 
+    -6px 0 0 0 black,
+    6px 0 0 0 black,
+    0 -6px 0 0 black,
+    0 6px 0 0 black,
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2); /* Subtle inner shadow */
+
+  /* Ensure the full body sprite stays crisp */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px; /* Adjust based on your sprite height */
+  width: 100%;
+  max-width: 350px;
+}
+
+.character-body {
+  image-rendering: pixelated !important;
+  max-height: 350px;
+  /* Add a "floating" animation to make the character feel alive */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 2. Custom RPG Button (Replaces btn-primary) */
+.rpg-btn {
+  all: unset; /* Clear Bootstrap defaults */
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 1rem;
+  background-color: #2ed573; /* Classic "Success" Green */
+  color: white !important;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-decoration: none !important;
+  text-align: center;
+
+  /* Pixel Border */
+  box-shadow: 
+    -4px 0 0 0 black,
+    4px 0 0 0 black,
+    0 -4px 0 0 black,
+    0 4px 0 0 black;
+    
+  transition: transform 0.1s steps(2);
+}
+
+.rpg-btn:hover {
+  background-color: #7bed9f;
+  transform: translateY(-2px);
+}
+
+.rpg-btn:active {
+  transform: translateY(2px);
+  box-shadow: 
+    -2px 0 0 0 black,
+    2px 0 0 0 black,
+    0 -2px 0 0 black,
+    0 2px 0 0 black;
+}
+
+/* 3. Subtle Character Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.character-preview-window::before {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  width: 100px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%; 
+  filter: blur(4px);
+}
