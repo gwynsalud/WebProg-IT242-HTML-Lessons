@@ -12,8 +12,23 @@
 
 /* Profile cards */
 .character-profile {
+  max-height: 220px;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.character-profile-img {
+  height: 120px;
+  object-fit: contain;
+  padding: 0.5rem;
+}
+
+.character-profile .card-body {
+  padding: 0.5rem;
+}
+
+#characters h2 {
+  margin-bottom: 1rem;
 }
 
 .character-profile.unlocked:hover {
