@@ -34,21 +34,21 @@ body {
 
 /* ===== 3. Character Card Overrides ===== */
 .character-profile {
-  width: clamp(120px, 18vw, 160px);
+  width: clamp(140px, 25vw, 220px);
   aspect-ratio: 1 / 1;
   margin: auto;
   
   /* Reset Bootstrap Card Styles */
-  background-color: var(--pixel-card);
+  background-color: #2f3542;
   border: none; 
   border-radius: 0 !important; /* KILL THE ROUNDED CORNERS */
   
   /* The "Pixel Border" Trick using box-shadow */
   box-shadow: 
-    -4px 0 0 0 black,
-    4px 0 0 0 black,
-    0 -4px 0 0 black,
-    0 4px 0 0 black;
+    -5px 0 0 0 black,
+    5px 0 0 0 black,
+    0 -5px 0 0 black,
+    0 5px 0 0 black !important;
   
   position: relative; /* Needed for the hand cursor */
   transition: transform 0.1s steps(2); /* "Snappy" animation, not smooth */
@@ -60,13 +60,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.2rem;
   overflow: hidden;
 }
 
 .profile-img-wrapper img {
-  max-width: 90%; /* Give it some breathing room inside the border */
-  max-height: 90%;
+  max-width: 95%; /* Give it some breathing room inside the border */
+  max-height: 95%;
   object-fit: contain;
   image-rendering: pixelated; /* CRITICAL for pixel art */
 }
@@ -74,10 +74,10 @@ body {
 /* Text Label Styling */
 .rpg-card-label {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-align: center;
   color: var(--pixel-white);
-  padding-bottom: 8px;
+  padding-bottom: 5px;
   text-transform: uppercase;
 }
 
