@@ -47,3 +47,8 @@
   object-fit: contain;
 }
 
+@media (max-height: 700px) {
+  .character-profile-img {
+    height: 100px;
+  }
+}
