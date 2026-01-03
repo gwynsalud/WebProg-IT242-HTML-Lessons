@@ -163,12 +163,14 @@ canvas {
 #characters {
   background-color: var(--pixel-section-mid);
   color: var(--pixel-white);
+  min-height: 100vh; 
 }
 
 #characters .rpg-title {
   margin-top: -20px; 
   font-size: 1.2rem;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 #characters .row {
@@ -185,7 +187,7 @@ canvas {
   max-width: 400px;
   justify-items: center;
   align-items: center;
-  margin: 0 auto;
+  margin: auto auto; 
 }
 
 /* ===== 3. Character Card Overrides ===== */
