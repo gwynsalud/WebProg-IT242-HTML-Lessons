@@ -25,6 +25,13 @@ body {
   font-family: 'Press Start 2P', cursive;
 }
 
+.rpg-title {
+  font-size: 1.2rem;
+  color: var(--pixel-white);
+  line-height: 1.5;
+  text-shadow: 2px 2px 0 #000;
+}
+
 /* ===== PIXEL RENDERING ===== */
 img,
 canvas {
@@ -42,19 +49,10 @@ canvas {
   color: var(--pixel-white);
 }
 
-/* ===== Character Selection (Full Screen) ===== */
+/* ===== Character Selection ===== */
 #characters {
   background-color: var(--pixel-section-mid);
   color: var(--pixel-white);
-}
-
-/* ===== 2. Typography ===== */
-.rpg-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.2rem; /* Keep it readable */
-  color: var(--pixel-white);
-  text-shadow: 2px 2px 0px #000; /* Hard shadow for pop */
-  line-height: 1.5;
 }
 
 /* The Grid Container */
