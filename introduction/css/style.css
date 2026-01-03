@@ -45,10 +45,9 @@ canvas {
 
 /* ===== Start Menu ===== */
 #start-menu {
-  /* Replace 'your-background.gif' with your actual file path */
   background: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url('assets/gifs/startmenu_bg') no-repeat center center;
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('assets/gifs/startmenu_bg.gif') no-repeat center center;
   background-size: cover;
   color: var(--pixel-white);
   position: relative;
@@ -57,19 +56,38 @@ canvas {
 
 .rpg-title {
   font-family: 'Press Start 2P', cursive;
-  text-shadow: 4px 4px 0px #000;
+  font-size: clamp(2.5rem, 6vw, 5rem); 
+  color: #fff;
+  text-shadow: 6px 6px 0px #000;
+  margin-bottom: 10px;
   animation: flicker 3s infinite;
+  letter-spacing: -2px;
+}
+
+.rpg-subtitle {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  color: var(--pixel-gold);
+  text-shadow: 3px 3px 0px #000;
+  margin-bottom: 40px;
+  text-transform: uppercase;
 }
 
 .pixel-text {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.8rem;
-  margin-top: 20px;
+  font-size: 0.9rem;
+  animation: pulse 1.5s infinite; 
 }
 
+/* Animations */
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
   20%, 22%, 24%, 55% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 /* ===== Character Selection ===== */
