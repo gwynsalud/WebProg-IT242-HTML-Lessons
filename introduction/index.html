@@ -131,38 +131,40 @@
 
   <!-- ================= ABOUT SECTION ================= -->
   
-  <section id="about" class="vh-100 d-flex flex-column align-items-center justify-content-center">
+  <section id="about" class="vh-100 d-flex flex-column align-items-center">
   
     <h2 class="rpg-title section-header-about">Player Profile</h2>
 
-    <div class="container mt-5">
-      <div class="dialogue-wrapper d-flex flex-column align-items-center">
-        
-        <div class="quest-notification mb-4">
-          <div class="quest-icon">!</div>
+    <div class="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
+      
+      <div class="quest-anchor mb-5">
+        <div class="quest-notification" id="quest-alert">
+          <div class="quest-icon-container">
+              <span class="quest-icon">!</span>
+          </div>
           <div class="quest-text">
             <span class="quest-status">NEW QUEST:</span>
             <span class="quest-title">The Developer's Origin</span>
           </div>
         </div>
+      </div>
 
-        <div class="d-flex flex-column flex-md-row align-items-center w-100">
-          <div class="portrait-box mb-4 mb-md-0">
-            <img src="assets/images/character1_portrait.png" alt="Portrait" class="pixel-portrait">
-          </div>
-
-          <div class="rpg-dialogue-box">
-            <div class="speaker-name">GGG</div>
-            <div class="dialogue-content">
-              <p class="typewriter">"I see you've chosen me for this journey. I am a Full-Stack developer specializing in building immersive digital experiences..."</p>
-            </div>
-            <div class="dialogue-footer">
-              <span class="pixel-arrow">▼</span>
-            </div>
-          </div>
+      <div class="dialogue-wrapper d-flex flex-column flex-md-row align-items-end w-100">
+        <div class="portrait-box">
+          <img src="assets/images/character1_portrait.png" alt="Portrait" class="pixel-portrait">
         </div>
 
+        <div class="rpg-dialogue-box flex-grow-1">
+          <div class="speaker-name">GGG</div>
+          <div class="dialogue-content">
+            <p id="about-text">"I see you've chosen me for this journey. I am a Full-Stack developer specializing in building immersive digital experiences..."</p>
+          </div>
+          <div class="dialogue-footer">
+            <span class="pixel-arrow">▼</span>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 

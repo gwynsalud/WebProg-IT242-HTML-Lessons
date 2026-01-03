@@ -497,26 +497,46 @@ canvas {
 .quest-notification {
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.85);
-  border: 3px solid var(--pixel-gold);
-  padding: 10px 25px;
-  box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
-  /* Animation to make it "pop" in */
-  animation: questPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.8) 85%, transparent);
+  border-top: 2px solid var(--pixel-gold);
+  border-bottom: 2px solid var(--pixel-gold);
+  padding: 15px 40px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease-out;
+}
+
+.quest-notification.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .quest-icon {
+  display: inline-block;
   font-family: 'Press Start 2P', cursive;
-  background: var(--pixel-gold);
   color: #000;
-  width: 30px;
-  height: 30px;
+  animation: jump 0.6s infinite steps(2);
+}
+
+.quest-icon-container {
+  background: var(--pixel-gold);
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-right: 20px;
+  box-shadow: 4px 4px 0px #000;
+}
+
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.quest-anchor {
+    margin-top: -50px;
+    perspective: 1000px;
 }
 
 .quest-status {
