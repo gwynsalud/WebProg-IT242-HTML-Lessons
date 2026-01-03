@@ -86,37 +86,41 @@
       <!-- ===== RIGHT SIDE: CHARACTER BODY PREVIEW ===== -->
       <div class="col-md-6 d-flex flex-column align-items-center justify-content-center mt-4 mt-md-0">
   
-  <div class="character-preview-window mb-4">
-    <img
-      src="assets/images/character1_fullbody.png"
-      alt="Character body preview"
-      class="img-fluid character-body"
-    >
+  <div class="character-sheet">
+    <div class="d-flex flex-column flex-lg-row align-items-center gap-4">
+      
+      <div class="character-preview-window">
+        <img src="assets/images/character1_fullbody.png" alt="Character body" class="img-fluid character-body">
+        <div class="shadow-oval"></div> </div>
+
+      <div class="stats-panel">
+        <h3 class="stat-header">PLAYER STATS</h3>
+        
+        <div class="stat-row">
+          <span class="stat-label">STR (JS)</span>
+          <div class="hp-bar-container"><div class="hp-fill" style="width: 85%;"></div></div>
+        </div>
+        
+        <div class="stat-row">
+          <span class="stat-label">AGI (CSS)</span>
+          <div class="hp-bar-container"><div class="hp-fill" style="width: 95%; background-color: #3498db;"></div></div>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-label">INT (SQL)</span>
+          <div class="hp-bar-container"><div class="hp-fill" style="width: 70%; background-color: #f1c40f;"></div></div>
+        </div>
+
+        <div class="lore-box mt-3">
+          <p class="lore-text">CLASS: FULL-STACK</p>
+          <p class="lore-text">GUILD: GITHUB.COM/USER</p>
+          <p class="lore-text">MAIL: HELLO@EMAIL.COM</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <a
-    href="#about"
-    class="rpg-btn"
-    id="confirm-character"
-  >
-    CONFIRM
-  </a>
-
-  <div class="stats-container mt-3">
-  <div class="stat-row">
-    <span class="stat-label">STR</span>
-    <div class="hp-bar-container"><div class="hp-fill" style="width: 80%;"></div></div>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">INT</span>
-    <div class="hp-bar-container"><div class="hp-fill" style="width: 60%; background-color: var(--pixel-blue);"></div></div>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">AGI</span>
-    <div class="hp-bar-container"><div class="hp-fill" style="width: 90%; background-color: #f1c40f;"></div></div>
-  </div>
-</div>
-
+  <a href="#about" class="rpg-btn-gold mt-4" id="confirm-character">CONFIRM</a>
 </div>
 
 
