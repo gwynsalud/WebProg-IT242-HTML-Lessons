@@ -75,6 +75,7 @@ canvas {
 #start-menu .rpg-title {
   font-family: 'Press Start 2P', cursive;
   font-size: clamp(2.5rem, 6vw, 5rem); 
+  letter-spacing: 4px;
   color: #fff;
   text-shadow: 6px 6px 0px #000;
   margin-bottom: 10px;
