@@ -1,23 +1,37 @@
-html, body {
-  background-color: var(--pixel-bg);
-  color: var(--pixel-white);
-  image-rendering: pixelated;
+/* ===== CSS VARIABLES ===== */
+:root {
+  --pixel-bg: #202020;
+  --pixel-white: #ffffff;
 }
 
-canvas, img {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
 
-body {
-  font-family: 'Press Start 2P', cursive; /* A classic pixel font */
-  background-color: #202020;
-  color: white;
-}
-
+/* ===== Global Reset / Base ===== */
 * {
   box-sizing: border-box;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--pixel-bg);
+  color: var(--pixel-white);
+}
+
+
+/* ===== Typography ===== */
+body {
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+/* ===== Pixel Rendering ===== */
+img,
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges; 
+}
+
+
 
 /* ===== Start Menu ===== */
 #start-menu {
