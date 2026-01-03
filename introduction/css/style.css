@@ -483,10 +483,12 @@ canvas {
   background-size: 10px 100%;
 }
 
-/* ABOUT ME / PERSONAL PROFILE */
+/* ===== ABOUT ME / PERSONAL PROFILE ===== */
 #about {
   position: relative;
   background-color: var(--pixel-section-dark);
+  min-height: 100vh;
+  padding-top: 100px; /* Space for the absolute header */
 }
 
 .section-header-about {
@@ -512,50 +514,25 @@ canvas {
   box-shadow: 4px 4px 0px #000;
 }
 
+/* QUEST NOTIFICATION */
+.quest-anchor {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  perspective: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .quest-notification {
   display: flex;
   align-items: center;
   background: linear-gradient(90deg, transparent, rgba(0,0,0,0.85) 15%, rgba(0,0,0,0.85) 85%, transparent);
   border-top: 2px solid var(--pixel-gold);
   border-bottom: 2px solid var(--pixel-gold);
-  padding: 15px 40px;
+  padding: 15px 60px;
   opacity: 1; 
   transform: translateY(0);
-}
-
-.quest-notification.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Lore Facts Grid Styling */
-.lore-facts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 15px;
-  border: 2px dashed #444;
-  box-shadow: inset 0 0 10px #000;
-}
-
-.lore-item {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.55rem;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.lore-label {
-  color: var(--pixel-gold);
-  margin-right: 5px;
-}
-
-.quest-icon {
-  display: inline-block;
-  font-family: 'Press Start 2P', cursive;
-  color: #000;
-  animation: jump 0.6s infinite steps(2);
 }
 
 .quest-icon-container {
@@ -567,97 +544,130 @@ canvas {
   align-items: center;
   margin-right: 20px;
   box-shadow: 4px 4px 0px #000;
+  flex-shrink: 0;
 }
 
-@keyframes jump {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.quest-anchor {
-    margin-top: -50px;
-    perspective: 1000px;
+.quest-icon {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
+  font-size: 1.2rem;
+  animation: jump 0.6s infinite steps(2);
 }
 
 .quest-status {
   display: block;
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   color: var(--pixel-gold);
   margin-bottom: 5px;
 }
 
 .quest-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #fff;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-@keyframes questPop {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Dialogue Box Container */
-.rpg-dialogue-box {
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 4px solid #fff;
-  padding: 20px;
-  position: relative;
-  width: 100%;
-  min-height: 200px;
-  box-shadow: 0 0 0 4px #000; /* Double border effect */
-}
-
-/* Name Tag */
-.speaker-name {
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  background: #fff;
-  color: #000;
-  padding: 5px 15px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-}
-
+/* DIALOGUE LAYOUT */
 .dialogue-wrapper {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+  align-items: flex-start !important; /* Ensures portrait stays at the top of the box */
 }
 
-.dialogue-content {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: #fff;
-}
-
-/* Portrait Styling */
+/* PORTRAIT */
 .portrait-box {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   background: #222;
   border: 4px solid #fff;
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
+  image-rendering: pixelated;
+  margin-top: 10px; /* Aligns with the top of the dialogue box border */
 }
 
 .pixel-portrait {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
-/* Blinking Arrow */
-.pixel-arrow {
+/* DIALOGUE BOX */
+.rpg-dialogue-box {
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 4px solid #fff;
+  padding: 25px;
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  box-shadow: 0 0 0 4px #000;
+}
+
+.speaker-name {
   position: absolute;
-  bottom: 10px;
-  right: 15px;
-  animation: blink 0.8s infinite;
+  top: -18px;
+  left: 25px;
+  background: #fff;
+  color: #000;
+  padding: 4px 12px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.dialogue-content {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #fff;
+  margin: 0;
+}
+
+/* LORE FACTS GRID */
+.lore-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border: 2px dashed #555;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.lore-item {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.lore-label {
+  color: var(--pixel-gold);
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+/* ANIMATIONS */
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+.pixel-arrow {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  color: #fff;
+  font-size: 0.8rem;
+  animation: blink 0.8s infinite;
 }
