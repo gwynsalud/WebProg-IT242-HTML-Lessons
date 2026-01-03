@@ -172,8 +172,8 @@ canvas {
 
 #characters .section-header {
   position: absolute;
-  top: 100px;
-  left: 15%;
+  top: 110px;
+  left: 12%;
   transform: none;
   width: auto;
   text-align: left;
