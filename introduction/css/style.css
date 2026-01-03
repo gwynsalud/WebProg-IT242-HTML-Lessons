@@ -378,7 +378,7 @@ canvas {
   padding: 30px;
   box-shadow: inset -4px -4px 0px rgba(255,255,255,0.1);
   width: 100%;
-  min-height: 420px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
