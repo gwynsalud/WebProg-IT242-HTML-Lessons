@@ -1,11 +1,15 @@
-/* ===== CSS VARIABLES ===== */
+/* ===== THEME VARIABLES ===== */
 :root {
-  --pixel-bg: #202020;
-  --pixel-white: #ffffff;
+  --pixel-bg: #212529;
+  --pixel-card: #2f3542;
+  --pixel-section-dark: #0d1117;
+  --pixel-section-mid: #161b22;
+  --pixel-gold: #e1b12c;
+  --pixel-white: #f1f2f6;
 }
 
 
-/* ===== Global Reset / Base ===== */
+/* ===== GLOBAL RESET / BASE ===== */
 * {
   box-sizing: border-box;
 }
@@ -18,13 +22,13 @@ html, body {
 }
 
 
-/* ===== Typography ===== */
+/* ===== TYPOGRAPHY ===== */
 body {
   font-family: 'Press Start 2P', cursive;
 }
 
 
-/* ===== Pixel Rendering ===== */
+/* ===== PIXEL RENDERING ===== */
 img,
 canvas {
   image-rendering: pixelated;
