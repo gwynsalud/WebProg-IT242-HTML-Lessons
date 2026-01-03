@@ -178,6 +178,11 @@ canvas {
   align-items: stretch;
 }
 
+@media (max-width: 768px) {
+  #characters .row { display: block; }
+  .character-grid { margin-bottom: 40px; }
+}
+
 /* The Grid Container */
 .character-grid {
   display: grid;
