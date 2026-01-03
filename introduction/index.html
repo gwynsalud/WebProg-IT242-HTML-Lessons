@@ -138,7 +138,7 @@
     <div class="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
       
       <div class="quest-anchor mb-5">
-        <div class="quest-notification" id="quest-alert">
+        <div class="quest-notification show" id="quest-alert">
           <div class="quest-icon-container">
               <span class="quest-icon">!</span>
           </div>
@@ -149,19 +149,33 @@
         </div>
       </div>
 
-      <div class="dialogue-wrapper d-flex flex-column flex-md-row align-items-end w-100">
-        <div class="portrait-box">
-          <img src="assets/images/character1_portrait.jpg" alt="Portrait" class="pixel-portrait">
+      <div class="dialogue-wrapper d-flex flex-column flex-md-row align-items-stretch w-100 gap-4">
+        
+        <div class="d-flex flex-column gap-3">
+          <div class="portrait-box">
+            <img src="assets/images/character1_portrait.png" alt="Portrait" class="pixel-portrait">
+          </div>
         </div>
 
-        <div class="rpg-dialogue-box flex-grow-1">
-          <div class="speaker-name">GGG</div>
-          <div class="dialogue-content">
-            <p id="about-text">"I see you've chosen me for this journey. I am a Full-Stack developer specializing in building immersive digital experiences..."</p>
+        <div class="flex-grow-1 d-flex flex-column gap-3">
+          
+          <div class="rpg-dialogue-box">
+            <div class="speaker-name">GGG</div>
+            <div class="dialogue-content">
+              <p id="about-text">"I see you've chosen me for this journey. I first picked up a keyboard trying to mod my favorite games; now, I'm on a quest to build high-performance digital worlds for legendary teams."</p>
+            </div>
+            <div class="dialogue-footer">
+              <span class="pixel-arrow">▼</span>
+            </div>
           </div>
-          <div class="dialogue-footer">
-            <span class="pixel-arrow">▼</span>
+
+          <div class="lore-facts-grid">
+              <div class="lore-item"><span class="lore-label">ORIGIN:</span> Pasay City, PH</div>
+              <div class="lore-item"><span class="lore-label">MANA:</span> Cold Brew Coffee</div>
+              <div class="lore-item"><span class="lore-label">PLAYSTYLE:</span> Collaborative</div>
+              <div class="lore-item"><span class="lore-label">MOUNT:</span> Mechanical Keyboard</div>
           </div>
+
         </div>
       </div>
 

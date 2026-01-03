@@ -487,18 +487,40 @@ canvas {
 .quest-notification {
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.8) 85%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.85) 15%, rgba(0,0,0,0.85) 85%, transparent);
   border-top: 2px solid var(--pixel-gold);
   border-bottom: 2px solid var(--pixel-gold);
   padding: 15px 40px;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.5s ease-out;
+  opacity: 1; 
+  transform: translateY(0);
 }
 
 .quest-notification.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Lore Facts Grid Styling */
+.lore-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border: 2px dashed #444;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.lore-item {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.lore-label {
+  color: var(--pixel-gold);
+  margin-right: 5px;
 }
 
 .quest-icon {
@@ -572,10 +594,15 @@ canvas {
   font-size: 0.7rem;
 }
 
+.dialogue-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .dialogue-content {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.8;
   color: #fff;
 }
 
@@ -583,10 +610,10 @@ canvas {
 .portrait-box {
   width: 150px;
   height: 150px;
-  border: 4px solid #fff;
-  margin-right: 30px;
   background: #222;
-  image-rendering: pixelated;
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px #000;
+  flex-shrink: 0;
 }
 
 .pixel-portrait {
