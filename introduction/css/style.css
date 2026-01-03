@@ -45,6 +45,16 @@ canvas {
 
 /* ===== Start Menu ===== */
 /* Only titles inside the Start Menu will flicker */
+#start-menu {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('../assets/gifs/startmenu_bg.gif') no-repeat center center;
+  background-size: cover;
+  color: var(--pixel-white);
+  position: relative;
+  overflow: hidden;
+}
+
 #start-menu .rpg-title {
   font-family: 'Press Start 2P', cursive;
   font-size: clamp(2.5rem, 6vw, 5rem); 
