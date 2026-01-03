@@ -172,7 +172,7 @@ canvas {
 
 #characters .section-header {
   position: absolute;
-  top: 60px;
+  top: 100px;
   left: 15%;
   transform: none;
   width: auto;
