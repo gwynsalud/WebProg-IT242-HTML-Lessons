@@ -354,3 +354,42 @@ canvas {
   border-radius: 50%; 
   filter: blur(4px);
 }
+
+/* STATS */
+
+.stats-container {
+  width: 100%;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  border: 4px solid #000;
+  box-shadow: inset -4px -4px 0px rgba(255,255,255,0.1);
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  width: 50px;
+  color: var(--pixel-gold);
+}
+
+.hp-bar-container {
+  flex-grow: 1;
+  height: 12px;
+  background: #333;
+  border: 2px solid #000;
+  position: relative;
+}
+
+.hp-fill {
+  height: 100%;
+  background-color: var(--pixel-green);
+  /* This creates a "segmented" blocky look inside the bar */
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.2) 50%, transparent 50%);
+  background-size: 10px 100%;
+}
