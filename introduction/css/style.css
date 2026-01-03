@@ -4,6 +4,17 @@ html, body {
   image-rendering: pixelated;
 }
 
+canvas, img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive; /* A classic pixel font */
+  background-color: #202020;
+  color: white;
+}
+
 * {
   box-sizing: border-box;
 }
