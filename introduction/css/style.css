@@ -76,11 +76,11 @@ canvas {
 
 #start-menu .rpg-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: clamp(2.5rem, 6vw, 5rem); 
+  font-size: clamp(2.5rem, 5vw, 3.5rem); 
   letter-spacing: 4px;
   color: #fff;
   text-shadow: 6px 6px 0px #000;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   animation: flicker 3s infinite; /* Animation stays here */
   letter-spacing: -2px;
 }
@@ -89,6 +89,7 @@ canvas {
 .rpg-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 1.5rem;
+  margin-bottom: 60px;
   color: var(--pixel-white);
   text-shadow: 2px 2px 0px #000;
   animation: none; /* Explicitly ensure no animation elsewhere */
@@ -105,8 +106,43 @@ canvas {
 
 .pixel-text {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  margin-bottom: 30px;
   animation: pulse 1.5s infinite; 
+}
+
+.rpg-btn-gold {
+  all: unset;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  background-color: var(--pixel-gold);
+  color: #000 !important;
+  padding: 15px 30px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  
+  box-shadow: 
+    -4px 0 0 0 #000,
+    4px 0 0 0 #000,
+    0 -4px 0 0 #000,
+    0 4px 0 0 #000,
+    inset -4px -4px 0px 0px #b08d23;
+}
+
+.rpg-btn-gold:hover {
+  background-color: #f1c40f;
+  transform: scale(1.05);
+}
+
+.rpg-btn-gold:active {
+  transform: translateY(4px);
+  box-shadow: 
+    -4px 0 0 0 #000,
+    4px 0 0 0 #000,
+    0 -4px 0 0 #000,
+    0 4px 0 0 #000,
+    inset 4px 4px 0px 0px #b08d23; 
 }
 
 /* Animations */
