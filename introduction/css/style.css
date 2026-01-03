@@ -44,24 +44,24 @@ canvas {
    ======================================== */
 
 /* ===== Start Menu ===== */
-#start-menu {
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-    url('assets/gifs/startmenu_bg.gif') no-repeat center center;
-  background-size: cover;
-  color: var(--pixel-white);
-  position: relative;
-  overflow: hidden;
-}
-
-.rpg-title {
+/* Only titles inside the Start Menu will flicker */
+#start-menu .rpg-title {
   font-family: 'Press Start 2P', cursive;
   font-size: clamp(2.5rem, 6vw, 5rem); 
   color: #fff;
   text-shadow: 6px 6px 0px #000;
   margin-bottom: 10px;
-  animation: flicker 3s infinite;
+  animation: flicker 3s infinite; /* Animation stays here */
   letter-spacing: -2px;
+}
+
+/* Standard titles in other sections (Character Select, etc.) */
+.rpg-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: var(--pixel-white);
+  text-shadow: 2px 2px 0px #000;
+  animation: none; /* Explicitly ensure no animation elsewhere */
 }
 
 .rpg-subtitle {
