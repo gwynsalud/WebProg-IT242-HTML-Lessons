@@ -171,13 +171,13 @@ canvas {
 /* The Grid Container */
 .character-grid {
   display: grid;
-  /* Create 2 equal columns */
   grid-template-columns: repeat(2, 1fr); 
-  /* This ensures horizontal and vertical gaps are EXACTLY 10px */
-  gap: 10px; 
-  /* Center the grid within its parent */
+  gap: 20px; 
+  width: 100%;
+  max-width: 400px;
   justify-items: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 /* ===== 3. Character Card Overrides ===== */
