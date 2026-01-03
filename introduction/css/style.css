@@ -102,13 +102,46 @@ canvas {
     inset 4px 4px 0px 0px #b08d23; 
 }
 
+.rpg-btn {
+  all: unset;
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 1rem;
+  background-color: #2ed573;
+  color: white !important;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-decoration: none !important;
+  text-align: center;
 
+  /* Pixel Border */
+  box-shadow: 
+    -4px 0 0 0 black,
+    4px 0 0 0 black,
+    0 -4px 0 0 black,
+    0 4px 0 0 black;
+    
+  transition: transform 0.1s steps(2);
+}
+
+.rpg-btn:hover {
+  background-color: #7bed9f;
+  transform: translateY(-2px);
+}
+
+.rpg-btn:active {
+  transform: translateY(2px);
+  box-shadow: 
+    -2px 0 0 0 black,
+    2px 0 0 0 black,
+    0 -2px 0 0 black,
+    0 2px 0 0 black;
+}
 
 /* ========================================
               SECTION STYLING 
    ======================================== */
 
-/* ===== Start Menu ===== */
+/* =============== START MENU =============== */
 /* Only titles inside the Start Menu will flicker */
 #start-menu {
   background: 
@@ -161,7 +194,7 @@ canvas {
   50% { opacity: 0.3; }
 }
 
-/* ===== Character Selection ===== */
+/* =============== CHARACTER SELECTION =============== */
 #characters {
   position: relative;
   background-color: var(--pixel-section-mid);
@@ -212,27 +245,25 @@ canvas {
   margin: 0;
 }
 
-/* ===== 3. Character Card Overrides ===== */
+/* Character Card Overrides */
 .character-profile.card {
   width: clamp(140px, 20vw, 180px) !important;
   aspect-ratio: 1 / 1;
   margin: 0;
   
-  /* Reset Bootstrap Card Styles */
   background-color: #2f3542;
   border: none; 
-  border-radius: 0 !important; /* KILL THE ROUNDED CORNERS */
+  border-radius: 0 !important;
   
-  /* The "Pixel Border" Trick using box-shadow */
   box-shadow: 
     -4px 0 0 0 black,
     4px 0 0 0 black,
     0 -4px 0 0 black,
     0 4px 0 0 black !important;
   
-  position: relative; /* Needed for the hand cursor */
+  position: relative;
   display: flex;
-  transition: transform 0.1s steps(2); /* "Snappy" animation, not smooth */
+  transition: transform 0.1s steps(2);
 }
 
 /* Content inside the card */
@@ -246,13 +277,11 @@ canvas {
 }
 
 .profile-img-wrapper img {
-  max-width: 95%; /* Give it some breathing room inside the border */
+  max-width: 95%;
   max-height: 95%;
   object-fit: contain;
-  image-rendering: pixelated; /* CRITICAL for pixel art */
 }
 
-/* Text Label Styling */
 .rpg-card-label {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
@@ -263,7 +292,7 @@ canvas {
   text-transform: uppercase;
 }
 
-/* ===== 4. States (Locked vs Unlocked vs Active) ===== */
+/* ===== States (Locked vs Unlocked vs Active) ===== */
 
 /* Locked: Dark and dimmed */
 .character-profile.locked {
@@ -274,15 +303,14 @@ canvas {
 
 /* Unlocked (Hover State) */
 .character-profile.unlocked:hover {
-  transform: translateY(-4px); /* Moves up by pixels */
+  transform: translateY(-4px);
   background-color: #57606f;
   cursor: pointer;
 }
 
 /* Active / Selected State */
 .character-profile.active {
-  background-color: #3742fa; /* Classic RPG Blue */
-  /* Gold Border Effect */
+  background-color: #3742fa;
   box-shadow: 
     -4px 0 0 0 var(--pixel-gold),
     4px 0 0 0 var(--pixel-gold),
@@ -290,14 +318,13 @@ canvas {
     0 4px 0 0 var(--pixel-gold);
 }
 
-/* ===== 5. The "Finger" Pointer (Pure CSS) ===== */
-/* This adds a little triangle pointer to the active card */
+/* ===== Pointer ===== */
 .character-profile.active::after {
   content: "▼";
-  font-family: 'Press Start 2P'; /* Use a pixel font or symbol */
+  font-family: 'Press Start 2P'; 
   color: var(--pixel-gold);
   position: absolute;
-  top: -25px; /* Floats above the card */
+  top: -25px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 20px;
@@ -309,9 +336,9 @@ canvas {
   50% { top: -30px; }
 }
 
-/* 1. The Preview Window (The "Stage") */
+/* Preview Window */
 .character-preview-window {
-  background-color: #2f3542 !important; /* Matches your cards */
+  background-color: #2f3542 !important;
   padding: 20px;
   position: relative;
   
@@ -321,13 +348,12 @@ canvas {
     6px 0 0 0 black,
     0 -6px 0 0 black,
     0 6px 0 0 black,
-    inset -4px -4px 0px 0px rgba(0,0,0,0.2); /* Subtle inner shadow */
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2);
 
-  /* Ensure the full body sprite stays crisp */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px; /* Adjust based on your sprite height */
+  min-height: 400px;
   width: 100%;
   max-width: 350px;
 }
@@ -335,44 +361,7 @@ canvas {
 .character-body {
   image-rendering: pixelated !important;
   max-height: 350px;
-  /* Add a "floating" animation to make the character feel alive */
   animation: float 3s ease-in-out infinite;
-}
-
-/* 2. Custom RPG Button (Replaces btn-primary) */
-.rpg-btn {
-  all: unset; /* Clear Bootstrap defaults */
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 1rem;
-  background-color: #2ed573; /* Classic "Success" Green */
-  color: white !important;
-  padding: 12px 24px;
-  cursor: pointer;
-  text-decoration: none !important;
-  text-align: center;
-
-  /* Pixel Border */
-  box-shadow: 
-    -4px 0 0 0 black,
-    4px 0 0 0 black,
-    0 -4px 0 0 black,
-    0 4px 0 0 black;
-    
-  transition: transform 0.1s steps(2);
-}
-
-.rpg-btn:hover {
-  background-color: #7bed9f;
-  transform: translateY(-2px);
-}
-
-.rpg-btn:active {
-  transform: translateY(2px);
-  box-shadow: 
-    -2px 0 0 0 black,
-    2px 0 0 0 black,
-    0 -2px 0 0 black,
-    0 2px 0 0 black;
 }
 
 /* 3. Subtle Character Animation */
@@ -494,6 +483,7 @@ canvas {
   background-size: 10px 100%;
 }
 
+/* ABOUT ME / PERSONAL PROFILE */
 .quest-notification {
   display: flex;
   align-items: center;
