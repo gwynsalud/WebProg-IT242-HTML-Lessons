@@ -162,6 +162,12 @@ canvas {
   color: var(--pixel-white);
 }
 
+#characters .rpg-title {
+  margin-top: -20px; 
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
 /* The Grid Container */
 .character-grid {
   display: grid;
