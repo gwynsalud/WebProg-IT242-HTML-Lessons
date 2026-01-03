@@ -48,7 +48,7 @@ canvas {
 #start-menu {
   background: 
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-    url('assets/gifs/startmenu_bg.gif') no-repeat center center;
+    url('../assets/gifs/startmenu_bg.gif') no-repeat center center;
   background-size: cover;
   position: relative;
   overflow: hidden;
