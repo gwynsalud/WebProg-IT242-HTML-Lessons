@@ -6,6 +6,7 @@
   --pixel-section-mid: #161b22;
   --pixel-gold: #e1b12c;
   --pixel-white: #f1f2f6;
+  --pixel-green: #2ed573;
 }
 
 /* ===== GLOBAL RESET / BASE ===== */
@@ -458,7 +459,6 @@ canvas {
 .hp-fill {
   height: 100%;
   background-color: var(--pixel-green);
-  /* This creates a "segmented" blocky look inside the bar */
   background-image: linear-gradient(90deg, rgba(0,0,0,0.2) 50%, transparent 50%);
   background-size: 10px 100%;
 }
