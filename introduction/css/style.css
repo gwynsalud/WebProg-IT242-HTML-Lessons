@@ -171,6 +171,11 @@ canvas {
   letter-spacing: 2px;
 }
 
+#characters .row {
+  display: flex;
+  align-items: stretch;
+}
+
 /* The Grid Container */
 .character-grid {
   display: grid;
@@ -389,7 +394,7 @@ canvas {
 
 .stat-label {
   font-size: 0.65rem;
-  mid-width: 90px;
+  min-width: 90px;
   color: #fff;
 }
 
