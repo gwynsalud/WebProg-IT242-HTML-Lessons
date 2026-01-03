@@ -42,60 +42,14 @@ canvas {
   image-rendering: crisp-edges; 
 }
 
-/* ========================================
-              SECTION STYLING 
-   ======================================== */
-
-/* ===== Start Menu ===== */
-/* Only titles inside the Start Menu will flicker */
-#start-menu {
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-    url('../assets/gifs/startmenu_bg.gif') no-repeat center center;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-}
-
-.scanlines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.15) 50%
-  );
-  background-size: 100% 4px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.menu-content {
-  position: relative;
-  z-index: 2; 
-}
-
-#start-menu .rpg-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: clamp(2.5rem, 5vw, 3.5rem); 
-  letter-spacing: 4px;
-  color: #fff;
-  text-shadow: 6px 6px 0px #000;
-  margin-bottom: 20px;
-  animation: flicker 3s infinite; /* Animation stays here */
-  letter-spacing: -2px;
-}
-
-/* Standard titles in other sections (Character Select, etc.) */
+/* ===== PIXEL DESIGN SYSTEM (GLOBAL ELEMENTS) ===== */
 .rpg-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 1.5rem;
   margin-bottom: 60px;
   color: var(--pixel-white);
   text-shadow: 2px 2px 0px #000;
-  animation: none; /* Explicitly ensure no animation elsewhere */
+  animation: none;
 }
 
 .rpg-subtitle {
@@ -146,6 +100,54 @@ canvas {
     0 -4px 0 0 #000,
     0 4px 0 0 #000,
     inset 4px 4px 0px 0px #b08d23; 
+}
+
+
+
+/* ========================================
+              SECTION STYLING 
+   ======================================== */
+
+/* ===== Start Menu ===== */
+/* Only titles inside the Start Menu will flicker */
+#start-menu {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('../assets/gifs/startmenu_bg.gif') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.menu-content {
+  position: relative;
+  z-index: 2; 
+}
+
+#start-menu .rpg-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(2.5rem, 5vw, 3.5rem); 
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 6px 6px 0px #000;
+  margin-bottom: 20px;
+  animation: flicker 3s infinite; /* Animation stays here */
+  letter-spacing: -2px;
 }
 
 /* Animations */
