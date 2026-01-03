@@ -162,6 +162,16 @@ canvas {
 }
 
 /* ===== Character Selection ===== */
+.section-header {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 !important;
+  z-index: 10;
+}
+
 #characters {
   background-color: var(--pixel-section-mid);
   color: var(--pixel-white);
@@ -180,6 +190,10 @@ canvas {
   align-items: stretch;
 }
 
+#characters .row.align-items-end {
+  height: 60vh;
+}
+
 @media (max-width: 768px) {
   #characters .row { display: block; }
   .character-grid { margin-bottom: 40px; }
@@ -190,11 +204,8 @@ canvas {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   gap: 20px; 
-  width: 100%;
-  max-width: 400px;
-  justify-items: center;
-  align-items: center;
-  margin: auto auto; 
+  width: fit-content;
+  margin: 0;
 }
 
 /* ===== 3. Character Card Overrides ===== */
