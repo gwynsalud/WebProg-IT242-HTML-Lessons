@@ -8,7 +8,6 @@
   --pixel-white: #f1f2f6;
 }
 
-
 /* ===== GLOBAL RESET / BASE ===== */
 * {
   box-sizing: border-box;
@@ -21,12 +20,10 @@ html, body {
   color: var(--pixel-white);
 }
 
-
 /* ===== TYPOGRAPHY ===== */
 body {
   font-family: 'Press Start 2P', cursive;
 }
-
 
 /* ===== PIXEL RENDERING ===== */
 img,
@@ -35,31 +32,20 @@ canvas {
   image-rendering: crisp-edges; 
 }
 
-
+/* ========================================
+              SECTION STYLING 
+   ======================================== */
 
 /* ===== Start Menu ===== */
 #start-menu {
-  background-color: #0d1117;
-  color: #ffffff;
+  background-color: var(--pixel-section-dark);
+  color: var(--pixel-white);
 }
 
 /* ===== Character Selection (Full Screen) ===== */
 #characters {
-  background-color: #161b22;
-  color: #ffffff;
-}
-
-/* ===== 1. Global RPG Settings ===== */
-:root {
-  --pixel-bg: #212529;   /* Dark background */
-  --pixel-card: #2f3542; /* Card background */
-  --pixel-gold: #e1b12c; /* Selection color */
-  --pixel-white: #f1f2f6;
-}
-
-body {
-  /* Optional: Ensures images stay crisp globally */
-  image-rendering: pixelated; 
+  background-color: var(--pixel-section-mid);
+  color: var(--pixel-white);
 }
 
 /* ===== 2. Typography ===== */
