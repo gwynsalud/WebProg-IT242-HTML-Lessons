@@ -672,72 +672,77 @@ canvas {
   animation: blink 0.8s infinite;
 }
 
-/* Contact Sidebar */
-.contact-box {
-  width: 180px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #fff;
+/* Inventory Sidebar Container */
+.inventory-container {
+  width: 220px;
+  min-height: 400px; 
+  background: rgba(20, 20, 20, 0.95);
+  border: 4px solid #fff;
   padding: 15px;
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: 6px 6px 0px #000;
   flex-shrink: 0;
 }
 
-.comm-title {
+.inventory-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: var(--pixel-gold);
-  margin-bottom: 15px;
   text-align: center;
-  border-bottom: 2px solid #444;
-  padding-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-.comm-link {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.5rem;
-  color: #fff;
+/* 2-Column Grid */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.inventory-slot {
+  aspect-ratio: 1 / 1;
+  background: #333;
+  border: 2px solid #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  padding: 8px;
-  border: 1px solid transparent;
+  position: relative;
+  transition: all 0.1s steps(2);
+}
+
+.inventory-slot:not(.empty):hover {
+  background: #444;
+  border-color: var(--pixel-gold);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.inventory-slot.empty {
+  background: rgba(0, 0, 0, 0.3);
+  border-style: dashed;
+  border-color: #222;
+}
+
+.slot-icon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Item Description Box at the bottom of inventory */
+.item-description-box {
+  background: #000;
+  border: 2px solid #fff;
+  padding: 10px;
+  min-height: 50px;
   display: flex;
   align-items: center;
-  transition: all 0.2s steps(2);
+  justify-content: center;
 }
 
-.comm-link:hover {
-  background: #fff;
-  color: #000;
-  border-color: #000;
-}
-
-.comm-icon {
-  margin-right: 10px;
-  font-size: 0.8rem;
-}
-
-/* Status Indicator */
-.status-indicator {
+#item-label {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.45rem;
-  color: #0f0; /* Green for online */
-  text-align: center;
-  padding-top: 10px;
-}
-
-.dot {
-  height: 6px;
-  width: 6px;
-  background-color: #0f0;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.blink {
-  animation: status-blink 1s infinite;
-}
-
-@keyframes status-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  font-size: 0.5rem;
+  color: var(--pixel-gold);
+  margin: 0;
+  text-transform: uppercase;
 }
