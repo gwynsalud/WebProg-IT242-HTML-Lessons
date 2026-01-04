@@ -518,10 +518,10 @@ canvas {
   box-shadow: 4px 4px 0px #000;
 }
 
-/* QUEST NOTIFICATION */
+/* QUEST NOTIFICATION - Pushed lower */
 .quest-anchor {
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 60px; /* Increased to lower placement */
+  margin-bottom: 30px;
   perspective: 1000px;
   width: 100%;
   display: flex;
@@ -568,12 +568,17 @@ canvas {
   text-transform: uppercase;
 }
 
-/* DIALOGUE WRAPPER - The Core Fix */
+/* DIALOGUE WRAPPER */
 .dialogue-wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  /* Aligns Portrait and Dialogue/Lore to the vertical center of the Inventory */
   align-items: center !important; 
+}
+
+/* PROFILE GROUP - Fixes Portrait Alignment */
+.profile-group {
+  display: flex;
+  align-items: flex-start; /* Keeps portrait aligned with the top of dialogue */
 }
 
 /* PORTRAIT */
@@ -584,7 +589,7 @@ canvas {
   border: 4px solid #fff;
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
-  margin: 0;
+  margin-top: 5px; /* Tiny adjustment to match dialogue top border */
 }
 
 .pixel-portrait {
@@ -611,6 +616,7 @@ canvas {
   padding: 4px 12px;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
+  z-index: 5;
 }
 
 .dialogue-content {
@@ -640,15 +646,15 @@ canvas {
   color: var(--pixel-gold);
 }
 
-/* INVENTORY CONTAINER */
+/* INVENTORY CONTAINER - Optimized for 4 slots */
 .inventory-container {
-  width: 240px;
-  min-height: 420px; /* Taller than the dialogue/lore combo */
+  width: 220px;
   background: rgba(0, 0, 0, 0.85);
   border: 4px solid #fff;
   padding: 20px;
   box-shadow: 0 0 0 4px #000;
   flex-shrink: 0;
+  align-self: center;
 }
 
 .inventory-title {
@@ -676,35 +682,16 @@ canvas {
   transition: all 0.1s steps(2);
 }
 
-.inventory-slot:hover:not(.empty) {
+.inventory-slot:hover {
   background: #333;
   border-color: var(--pixel-gold);
+  transform: scale(1.05);
 }
 
 .slot-image {
-    width: 70%;
-    height: 70%;
+    width: 65%;
+    height: 65%;
     object-fit: contain;
-}
-
-.inventory-slot.empty {
-  border: 2px dashed #333;
-  background: transparent;
-}
-
-.item-description-box {
-  background: #000;
-  border: 2px solid #fff;
-  padding: 10px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#item-label {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.5rem;
-  color: var(--pixel-gold);
-  margin: 0;
 }
 
 /* ANIMATIONS */
@@ -724,7 +711,7 @@ canvas {
 @keyframes blink { 50% { opacity: 0; } }
 
 /* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .dialogue-wrapper {
     flex-direction: column;
     align-items: center !important;
@@ -732,7 +719,12 @@ canvas {
   
   .inventory-container {
     width: 100%;
-    min-height: auto;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  .profile-group {
+    width: 100%;
   }
 }
 
@@ -740,5 +732,8 @@ canvas {
   .profile-group {
     flex-direction: column;
     align-items: center;
+  }
+  .portrait-box {
+    margin-bottom: 15px;
   }
 }
