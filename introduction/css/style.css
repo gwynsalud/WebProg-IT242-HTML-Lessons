@@ -665,15 +665,16 @@ canvas {
   font-size: 0.75rem;
   color: var(--pixel-gold);
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-bottom: 2px solid #444;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 10px;
+  width: 100%;
 }
 
 .inventory-slot {
@@ -685,6 +686,7 @@ canvas {
   align-items: center;
   text-decoration: none;
   position: relative;
+  overflow: hidden;
   transition: all 0.1s steps(2);
 }
 
@@ -696,8 +698,8 @@ canvas {
 }
 
 .slot-image {
-    width: 65%;
-    height: 65%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 
