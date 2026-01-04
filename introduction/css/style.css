@@ -785,201 +785,152 @@ canvas {
 }
 
 /* =============== EDUCATION =============== */
-.education-tree {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.node-icon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.node-circle {
-    width: 60px;
-    height: 60px;
-    background: #1a1a1a;
-    border: 3px solid var(--pixel-gold);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 4px 4px 0px #000;
-}
-
-.node-icon {
-    width: 30px;
-    height: 30px;
-    image-rendering: pixelated;
-}
-
-.node-line {
-    width: 4px;
-    flex-grow: 1;
-    background: var(--pixel-gold);
-    box-shadow: 2px 0px 0px #000;
-    margin-top: 5px;
-}
-
-.card-pixel {
-    background: rgba(255, 255, 255, 0.05);
-    border: 3px solid #fff;
-    box-shadow: 6px 6px 0px #000;
-    flex-grow: 1;
-}
-
-.edu-date {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.55rem;
-    color: var(--pixel-gold);
-}
-
-.guild-name {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem;
-    margin: 10px 0 5px 0;
-    color: #fff;
-}
-
-.specialization {
-    font-size: 0.8rem;
-    color: #0f0; /* Green like a level-up notification */
-    margin-bottom: 15px;
-}
-
-.edu-lore {
-    font-style: italic;
-    font-size: 0.85rem;
-    color: #ccc;
-    border-left: 2px solid #444;
-    padding-left: 10px;
-}
-
-.skill-tag {
-    display: inline-block;
-    background: #222;
-    border: 1px solid #555;
-    padding: 4px 8px;
-    font-size: 0.6rem;
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 10px;
-    margin-right: 5px;
-}
-
+/* Merged Education Styles */
 .combined-tree {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-/* Central Timeline Spine */
+/* Central Spine */
 .combined-tree::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 100%;
-    background: repeating-linear-gradient(to bottom, var(--pixel-gold) 0, var(--pixel-gold) 15px, transparent 15px, transparent 30px);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: repeating-linear-gradient(to bottom, var(--pixel-gold) 0, var(--pixel-gold) 15px, transparent 15px, transparent 30px);
+  z-index: 1;
 }
 
 .tree-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 60px;
-    position: relative;
+  display: flex;
+  align-items: flex-start; /* Aligns to top of card */
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
 }
 
 .node-content, .node-spacer {
-    flex: 1;
+  flex: 1;
 }
 
 .node-center {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 50%;
 }
 
 /* Relic Styling */
 .relic-circle {
-    width: 60px;
-    height: 60px;
-    background: #111;
-    border: 3px solid #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 4px 4px 0px #000;
+  width: 64px;
+  height: 64px;
+  background: #111;
+  border: 4px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 0px #000;
+  transition: transform 0.2s steps(2);
 }
 
-.relic-circle img {
-    width: 30px;
-    image-rendering: pixelated;
+.node-icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
 }
 
 .active-glow {
-    border-color: var(--pixel-gold);
-    box-shadow: 0 0 15px var(--pixel-gold), 4px 4px 0px #000;
+  border-color: var(--pixel-gold);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 4px 4px 0px #000;
 }
 
-/* Card Styling */
+/* Card Improvements */
 .card-pixel {
-    background: rgba(0, 0, 0, 0.85);
-    border: 2px solid #fff;
-    box-shadow: 4px 4px 0px #000;
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid #fff;
+  box-shadow: 8px 8px 0px #000;
+  transition: transform 0.2s ease;
 }
 
-.node-content.left { text-align: right; margin-right: 20px; }
-.node-content.right { text-align: left; margin-left: 20px; }
+.card-pixel:hover {
+  transform: translateY(-5px);
+  border-color: var(--pixel-gold);
+}
+
+.node-content.left { margin-right: 30px; text-align: right; }
+.node-content.right { margin-left: 30px; text-align: left; }
 
 /* RPG Elements */
+.status-badge {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.45rem;
+  padding: 4px 8px;
+  border: 1px solid;
+}
+.status-badge.pulse { color: var(--pixel-gold); border-color: var(--pixel-gold); animation: blink 1s infinite; }
+.status-badge.leveling { color: #0f0; border-color: #0f0; }
+
 .xp-label {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.45rem;
-    color: #0f0;
-    margin-bottom: 4px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  color: #aaa;
+  margin-bottom: 6px;
 }
 
 .xp-bar {
-    height: 8px;
-    background: #333;
-    border: 1px solid #fff;
+  height: 10px;
+  background: #222;
+  border: 2px solid #444;
+  position: relative;
 }
 
 .xp-fill {
-    height: 100%;
-    background: var(--pixel-gold);
+  height: 100%;
+  background: linear-gradient(90deg, var(--pixel-gold), #fff);
 }
 
-.xp-fill.pulse {
-    animation: bar-pulse 1.5s infinite;
+.learned-skills, .learned-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: inherit;
 }
 
-@keyframes bar-pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; }
-    100% { opacity: 1; }
+/* Tags Styles */
+.skill-tag, .tag {
+  background: #222;
+  border: 1px solid #555;
+  padding: 5px 10px;
+  font-size: 0.55rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
 }
 
-.unlocked-list {
-    list-style: none;
-    padding: 0;
-    font-size: 0.75rem;
-    color: #ccc;
+.tag { border-color: var(--pixel-gold); color: var(--pixel-gold); }
+
+/* Lore Text */
+.edu-lore {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.6;
+  border-left: 3px solid #444;
+  padding-left: 15px;
+  margin: 15px 0;
+  text-align: left; /* Keep text readable regardless of side */
 }
 
-.plus { color: #0f0; margin: 0 5px; }
-
-.tag {
-    display: inline-block;
-    background: #222;
-    border: 1px solid var(--pixel-gold);
-    color: #fff;
-    padding: 3px 7px;
-    font-size: 0.5rem;
-    font-family: 'Press Start 2P', cursive;
-    margin-right: 5px;
+/* RESPONSIVE FIX */
+@media (max-width: 991px) {
+  .combined-tree::before { left: 40px; }
+  .tree-row { flex-direction: row !important; }
+  .node-spacer { display: none; }
+  .node-center { width: 80px; order: 1; }
+  .node-content { order: 2; text-align: left !important; margin: 0 0 0 20px !important; }
+  .edu-lore { border-left: 3px solid #444; border-right: none; padding-right: 0; }
 }
