@@ -269,6 +269,7 @@ canvas {
 .profile-group {
   display: flex;
   align-items: flex-start;
+}
 
 /* Content inside the card */
 .profile-img-wrapper {
@@ -732,5 +733,12 @@ canvas {
   .inventory-container {
     width: 100%;
     min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-group {
+    flex-direction: column;
+    align-items: center;
   }
 }
