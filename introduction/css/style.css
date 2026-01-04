@@ -783,3 +783,86 @@ canvas {
     margin-bottom: 15px;
   }
 }
+
+/* =============== EDUCATION =============== */
+.education-tree {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.node-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.node-circle {
+    width: 60px;
+    height: 60px;
+    background: #1a1a1a;
+    border: 3px solid var(--pixel-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.node-icon {
+    width: 30px;
+    height: 30px;
+    image-rendering: pixelated;
+}
+
+.node-line {
+    width: 4px;
+    flex-grow: 1;
+    background: var(--pixel-gold);
+    box-shadow: 2px 0px 0px #000;
+    margin-top: 5px;
+}
+
+.card-pixel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 3px solid #fff;
+    box-shadow: 6px 6px 0px #000;
+    flex-grow: 1;
+}
+
+.edu-date {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    color: var(--pixel-gold);
+}
+
+.guild-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    margin: 10px 0 5px 0;
+    color: #fff;
+}
+
+.specialization {
+    font-size: 0.8rem;
+    color: #0f0; /* Green like a level-up notification */
+    margin-bottom: 15px;
+}
+
+.edu-lore {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #ccc;
+    border-left: 2px solid #444;
+    padding-left: 10px;
+}
+
+.skill-tag {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #555;
+    padding: 4px 8px;
+    font-size: 0.6rem;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 10px;
+    margin-right: 5px;
+}
