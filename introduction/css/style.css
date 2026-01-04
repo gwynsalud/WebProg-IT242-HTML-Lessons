@@ -573,10 +573,9 @@ canvas {
 
 /* DIALOGUE LAYOUT */
 .dialogue-wrapper {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  align-items: flex-end !important; 
-  display: flex;
+  align-items: flex-start !important; /* Ensures portrait stays at the top of the box */
 }
 
 /* PORTRAIT */
