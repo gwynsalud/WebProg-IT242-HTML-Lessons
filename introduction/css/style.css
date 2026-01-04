@@ -966,3 +966,121 @@ canvas {
     font-size: 0.65rem;
     color: #aaa;
 }
+
+/* testing */
+.combined-tree {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Central Timeline Spine */
+.combined-tree::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, var(--pixel-gold) 0, var(--pixel-gold) 15px, transparent 15px, transparent 30px);
+}
+
+.tree-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.node-content, .node-spacer {
+    flex: 1;
+}
+
+.node-center {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Relic Styling */
+.relic-circle {
+    width: 60px;
+    height: 60px;
+    background: #111;
+    border: 3px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.relic-circle img {
+    width: 30px;
+    image-rendering: pixelated;
+}
+
+.active-glow {
+    border-color: var(--pixel-gold);
+    box-shadow: 0 0 15px var(--pixel-gold), 4px 4px 0px #000;
+}
+
+/* Card Styling */
+.card-pixel {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.node-content.left { text-align: right; margin-right: 20px; }
+.node-content.right { text-align: left; margin-left: 20px; }
+
+/* RPG Elements */
+.xp-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem;
+    color: #0f0;
+    margin-bottom: 4px;
+}
+
+.xp-bar {
+    height: 8px;
+    background: #333;
+    border: 1px solid #fff;
+}
+
+.xp-fill {
+    height: 100%;
+    background: var(--pixel-gold);
+}
+
+.xp-fill.pulse {
+    animation: bar-pulse 1.5s infinite;
+}
+
+@keyframes bar-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.unlocked-list {
+    list-style: none;
+    padding: 0;
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+.plus { color: #0f0; margin: 0 5px; }
+
+.tag {
+    display: inline-block;
+    background: #222;
+    border: 1px solid var(--pixel-gold);
+    color: #fff;
+    padding: 3px 7px;
+    font-size: 0.5rem;
+    font-family: 'Press Start 2P', cursive;
+    margin-right: 5px;
+}
