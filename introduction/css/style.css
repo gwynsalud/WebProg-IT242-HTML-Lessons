@@ -646,50 +646,53 @@ canvas {
   color: var(--pixel-gold);
 }
 
-/* INVENTORY CONTAINER - Optimized for 4 slots */
+/* INVENTORY CONTAINER */
 .inventory-container {
-  width: 220px;
+  width: 240px;
   background: rgba(0, 0, 0, 0.85);
   border: 4px solid #fff;
-  padding: 15px;
+  padding: 20px;
   box-shadow: 0 0 0 4px #000;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-self: center; 
+  min-height: 320px; 
+  justify-content: flex-start;
+  align-self: center;
 }
 
 .inventory-title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--pixel-gold);
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
 }
 
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
 }
 
 .inventory-slot {
   aspect-ratio: 1/1;
-  background: #222;
+  background: #1a1a1a;
   border: 2px solid #444;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  position: relative;
   transition: all 0.1s steps(2);
-  overflow: hidden;
 }
 
 .inventory-slot:hover {
   background: #333;
   border-color: var(--pixel-gold);
-  transform: scale(1.05);
+  box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2);
+  transform: scale(1.05)
 }
 
 .slot-image {
