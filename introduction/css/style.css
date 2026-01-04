@@ -488,7 +488,7 @@ canvas {
   position: relative;
   background-color: var(--pixel-section-dark);
   min-height: 100vh;
-  padding-top: 100px; /* Space for the absolute header */
+  padding: 100px 0 50px 0;
 }
 
 .section-header-about {
@@ -501,7 +501,6 @@ canvas {
   text-shadow: 4px 4px 0px #000;
   margin: 0;
   z-index: 10;
-  letter-spacing: 2px;
 }
 
 .section-header-about::after {
@@ -516,8 +515,6 @@ canvas {
 
 /* QUEST NOTIFICATION */
 .quest-anchor {
-  margin-top: 20px;
-  margin-bottom: 60px;
   perspective: 1000px;
   width: 100%;
   display: flex;
@@ -530,9 +527,7 @@ canvas {
   background: linear-gradient(90deg, transparent, rgba(0,0,0,0.85) 15%, rgba(0,0,0,0.85) 85%, transparent);
   border-top: 2px solid var(--pixel-gold);
   border-bottom: 2px solid var(--pixel-gold);
-  padding: 15px 60px;
-  opacity: 1; 
-  transform: translateY(0);
+  padding: 15px 40px;
 }
 
 .quest-icon-container {
@@ -544,14 +539,11 @@ canvas {
   align-items: center;
   margin-right: 20px;
   box-shadow: 4px 4px 0px #000;
-  flex-shrink: 0;
 }
 
 .quest-icon {
-  display: inline-block;
   font-family: 'Press Start 2P', cursive;
   color: #000;
-  font-size: 1.2rem;
   animation: jump 0.6s infinite steps(2);
 }
 
@@ -560,22 +552,21 @@ canvas {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
   color: var(--pixel-gold);
-  margin-bottom: 5px;
 }
 
 .quest-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-/* DIALOGUE LAYOUT */
+/* DIALOGUE WRAPPER - The Core Fix */
 .dialogue-wrapper {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  align-items: flex-start !important;
+  /* Aligns Portrait and Dialogue/Lore to the vertical center of the Inventory */
+  align-items: center !important; 
 }
 
 /* PORTRAIT */
@@ -586,8 +577,6 @@ canvas {
   border: 4px solid #fff;
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
-  image-rendering: pixelated;
-  margin-top: 10px; /* Aligns with the top of the dialogue box border */
 }
 
 .pixel-portrait {
@@ -602,84 +591,55 @@ canvas {
   border: 4px solid #fff;
   padding: 25px;
   position: relative;
-  width: 100%;
-  min-height: 180px;
   box-shadow: 0 0 0 4px #000;
 }
 
 .speaker-name {
   position: absolute;
   top: -18px;
-  left: 25px;
+  left: 20px;
   background: #fff;
   color: #000;
   padding: 4px 12px;
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.75rem;
-  box-shadow: 4px 4px 0px #000;
+  font-size: 0.7rem;
 }
 
 .dialogue-content {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.8;
   color: #fff;
-  margin: 0;
 }
 
 /* LORE FACTS GRID */
 .lore-facts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border: 2px dashed #555;
-  margin-top: 10px;
-  width: 100%;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border: 2px dashed #444;
 }
 
 .lore-item {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: #fff;
-  display: flex;
-  align-items: center;
 }
 
 .lore-label {
   color: var(--pixel-gold);
-  margin-right: 10px;
-  white-space: nowrap;
 }
 
-/* ANIMATIONS */
-@keyframes jump {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-.pixel-arrow {
-  position: absolute;
-  bottom: 12px;
-  right: 15px;
-  color: #fff;
-  font-size: 0.8rem;
-  animation: blink 0.8s infinite;
-}
-
-/* Inventory Sidebar Container */
+/* INVENTORY CONTAINER */
 .inventory-container {
-  width: 220px;
-  min-height: 400px; 
-  background: rgba(20, 20, 20, 0.95);
+  width: 240px;
+  min-height: 420px; /* Taller than the dialogue/lore combo */
+  background: rgba(0, 0, 0, 0.85);
   border: 4px solid #fff;
-  padding: 15px;
-  box-shadow: 6px 6px 0px #000;
+  padding: 20px;
+  box-shadow: 0 0 0 4px #000;
   flex-shrink: 0;
 }
 
@@ -691,36 +651,26 @@ canvas {
   margin-bottom: 20px;
 }
 
-/* 2-Column Grid */
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 .inventory-slot {
-  aspect-ratio: 1 / 1;
-  background: #333;
-  border: 2px solid #555;
+  aspect-ratio: 1/1;
+  background: #222;
+  border: 2px solid #444;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  position: relative;
   transition: all 0.1s steps(2);
 }
 
-.inventory-slot:not(.empty):hover {
-  background: #444;
+.inventory-slot:hover:not(.empty) {
+  background: #333;
   border-color: var(--pixel-gold);
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
-}
-
-.inventory-slot.empty {
-  background: rgba(0, 0, 0, 0.3);
-  border-style: dashed;
-  border-color: #222;
 }
 
 .slot-icon {
@@ -728,15 +678,17 @@ canvas {
   color: #fff;
 }
 
-/* Item Description Box at the bottom of inventory */
+.inventory-slot.empty {
+  border: 2px dashed #333;
+  background: transparent;
+}
+
 .item-description-box {
   background: #000;
   border: 2px solid #fff;
   padding: 10px;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
 }
 
 #item-label {
@@ -744,5 +696,33 @@ canvas {
   font-size: 0.5rem;
   color: var(--pixel-gold);
   margin: 0;
-  text-transform: uppercase;
+}
+
+/* ANIMATIONS */
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.pixel-arrow {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  animation: blink 0.8s infinite;
+  color: #fff;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .dialogue-wrapper {
+    flex-direction: column;
+    align-items: center !important;
+  }
+  
+  .inventory-container {
+    width: 100%;
+    min-height: auto;
+  }
 }
