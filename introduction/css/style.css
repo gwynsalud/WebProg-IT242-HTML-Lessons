@@ -703,15 +703,38 @@ canvas {
     object-fit: contain;
 }
 
-/* SKILL BUFFS SECTION */
-.buff-slot {
-  width: 30px;
-  height: 30px;
-  background: #111;
-  border: 1px solid #555;
-  padding: 4px;
+/* POTION BAR STYLES */
+.potion-bar {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-left: 3px solid var(--pixel-gold);
 }
-.buff-slot img { width: 100%; height: 100%; object-fit: contain; }
+
+.buff-label {
+  font-size: 0.55rem;
+  color: #0f0;
+  white-space: nowrap;
+}
+
+.potion-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.potion-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 0px #000);
+}
+
+.potion-name {
+  font-size: 0.45rem;
+  color: #fff;
+  text-transform: uppercase;
+}
 
 /* ANIMATIONS */
 @keyframes jump {
