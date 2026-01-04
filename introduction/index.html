@@ -132,13 +132,16 @@
   <!-- ================= ABOUT SECTION ================= -->
   
   <section id="about" class="vh-100 d-flex flex-column align-items-center">
+  
     <h2 class="rpg-title section-header-about">Player Profile</h2>
 
-    <div class="container flex-grow-1 d-flex flex-column justify-content-center">
+    <div class="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
       
       <div class="quest-anchor mb-5">
-        <div class="quest-notification">
-          <div class="quest-icon-container"><span class="quest-icon">!</span></div>
+        <div class="quest-notification show" id="quest-alert">
+          <div class="quest-icon-container">
+              <span class="quest-icon">!</span>
+          </div>
           <div class="quest-text">
             <span class="quest-status">NEW QUEST:</span>
             <span class="quest-title">The Developer's Origin</span>
@@ -146,46 +149,35 @@
         </div>
       </div>
 
-      <div class="about-wrapper">
-        
-        <div class="profile-main">
-          <div class="portrait-box">
-            <img src="assets/images/portrait.png" class="pixel-portrait" alt="GGG">
+      <div class="dialogue-wrapper d-flex flex-md-row gap-4">
+  
+        <div class="portrait-box">
+          <img src="assets/images/character1_portrait.jpg" class="pixel-portrait" alt="GGG">
+        </div>
+
+        <div class="center-content-col">
+          <div class="rpg-dialogue-box">
+            <div class="speaker-name">GGG</div>
+            <div class="dialogue-content">
+              <p>"I see you've chosen me for this journey... building digital worlds is my primary quest."</p>
+            </div>
           </div>
 
-          <div class="dialogue-col">
-            <div class="rpg-dialogue-box">
-              <div class="speaker-name">GGG</div>
-              <div class="dialogue-content">
-                <p>"I see you've chosen me for this journey... building digital worlds is my primary quest."</p>
-              </div>
-              <div class="dialogue-footer"><span class="pixel-arrow">▼</span></div>
-            </div>
-
-            <div class="lore-facts-grid">
-              <div class="lore-item"><span class="lore-label">ORIGIN:</span> PASAY CITY</div>
-              <div class="lore-item"><span class="lore-label">MANA:</span> COLD BREW</div>
-              <div class="lore-item"><span class="lore-label">PLAYSTYLE:</span> TEAM PLAYER</div>
-              <div class="lore-item"><span class="lore-label">MOUNT:</span> KEYBOARD</div>
-            </div>
+          <div class="lore-facts-grid">
+            <div class="lore-item"><span class="lore-label">ORIGIN:</span> PASAY CITY</div>
+            <div class="lore-item"><span class="lore-label">MANA:</span> COLD BREW</div>
+            <div class="lore-item"><span class="lore-label">PLAYSTYLE:</span> TEAM PLAYER</div>
+            <div class="lore-item"><span class="lore-label">MOUNT:</span> KEYBOARD</div>
           </div>
         </div>
 
         <div class="inventory-container">
           <h4 class="inventory-title">KEY ITEMS</h4>
           <div class="inventory-grid">
-            <a href="mailto:your@email.com" class="inventory-slot" data-label="EMAIL">
-              <img src="assets/icons/email-pixel.png" alt="Email">
-            </a>
-            <a href="#" class="inventory-slot" data-label="LINKEDIN">
-              <img src="assets/icons/linkedin-pixel.png" alt="LinkedIn">
-            </a>
-            <a href="#" class="inventory-slot" data-label="GITHUB">
-              <img src="assets/icons/github-pixel.png" alt="GitHub">
-            </a>
-            <a href="#" class="inventory-slot" data-label="RESUME">
-              <img src="assets/icons/resume-pixel.png" alt="Resume">
-            </a>
+            <a href="#" class="inventory-slot" data-label="EMAIL">✉</a>
+            <a href="#" class="inventory-slot" data-label="LINKEDIN">⌨</a>
+            <a href="#" class="inventory-slot" data-label="GITHUB">⚓</a>
+            <a href="#" class="inventory-slot" data-label="RESUME">💾</a>
             <div class="inventory-slot empty"></div>
             <div class="inventory-slot empty"></div>
           </div>
@@ -195,6 +187,12 @@
         </div>
 
       </div>
+
+          
+
+        </div>
+      </div>
+
     </div>
   </section>
 
