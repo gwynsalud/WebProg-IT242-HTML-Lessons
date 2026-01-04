@@ -671,3 +671,73 @@ canvas {
   font-size: 0.8rem;
   animation: blink 0.8s infinite;
 }
+
+/* Contact Sidebar */
+.contact-box {
+  width: 180px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #fff;
+  padding: 15px;
+  box-shadow: 4px 4px 0px #000;
+  flex-shrink: 0;
+}
+
+.comm-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: var(--pixel-gold);
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+  padding-bottom: 8px;
+}
+
+.comm-link {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s steps(2);
+}
+
+.comm-link:hover {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.comm-icon {
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+/* Status Indicator */
+.status-indicator {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.45rem;
+  color: #0f0; /* Green for online */
+  text-align: center;
+  padding-top: 10px;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  background-color: #0f0;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.blink {
+  animation: status-blink 1s infinite;
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
