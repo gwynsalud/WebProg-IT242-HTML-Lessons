@@ -489,6 +489,7 @@ canvas {
   background-color: var(--pixel-section-dark);
   min-height: 100vh;
   padding-top: 100px; /* Space for the absolute header */
+  padding-bottom: 50px;
 }
 
 .section-header-about {
@@ -517,7 +518,7 @@ canvas {
 /* QUEST NOTIFICATION */
 .quest-anchor {
   margin-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   perspective: 1000px;
   width: 100%;
   display: flex;
@@ -565,20 +566,34 @@ canvas {
 
 .quest-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* DIALOGUE LAYOUT */
-.dialogue-wrapper {
-  max-width: 1000px;
+/* MAIN WRAPPER - Desktop side-by-side, Mobile stacked */
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end; /* Grounding everything to the bottom floor */
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  align-items: flex-start !important; /* Ensures portrait stays at the top of the box */
+  padding: 0 20px;
 }
 
-/* PORTRAIT */
+/* LEFT + CENTER GROUP */
+.profile-main {
+  display: flex;
+  flex: 2;
+  gap: 20px;
+  align-items: flex-end;
+  min-width: 320px;
+}
+
 .portrait-box {
   width: 160px;
   height: 160px;
@@ -587,13 +602,19 @@ canvas {
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
   image-rendering: pixelated;
-  margin-top: 10px; /* Aligns with the top of the dialogue box border */
 }
 
 .pixel-portrait {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.dialogue-col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
 }
 
 /* DIALOGUE BOX */
@@ -603,7 +624,7 @@ canvas {
   padding: 25px;
   position: relative;
   width: 100%;
-  min-height: 180px;
+  min-height: 160px;
   box-shadow: 0 0 0 4px #000;
 }
 
@@ -617,11 +638,12 @@ canvas {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.75rem;
   box-shadow: 4px 4px 0px #000;
+  z-index: 2;
 }
 
 .dialogue-content {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.8;
   color: #fff;
   margin: 0;
@@ -635,13 +657,12 @@ canvas {
   background: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border: 2px dashed #555;
-  margin-top: 10px;
   width: 100%;
 }
 
 .lore-item {
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: #fff;
   display: flex;
   align-items: center;
@@ -651,6 +672,84 @@ canvas {
   color: var(--pixel-gold);
   margin-right: 10px;
   white-space: nowrap;
+}
+
+/* INVENTORY (CONTACTS) */
+.inventory-container {
+  flex: 1;
+  min-width: 240px;
+  min-height: 400px; /* Taller as requested */
+  background: rgba(10, 10, 10, 0.95);
+  border: 4px solid #fff;
+  padding: 20px;
+  box-shadow: 6px 6px 0px #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: var(--pixel-gold);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.inventory-slot {
+  aspect-ratio: 1 / 1;
+  background: #252525;
+  border: 2px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.1s steps(2);
+}
+
+.inventory-slot img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  image-rendering: pixelated; /* Keeps pixel art sharp */
+}
+
+.inventory-slot:not(.empty):hover {
+  background: #333;
+  border-color: var(--pixel-gold);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.inventory-slot.empty {
+  background: rgba(0, 0, 0, 0.3);
+  border-style: dashed;
+  border-color: #222;
+}
+
+.item-description-box {
+  background: #000;
+  border: 2px solid #fff;
+  padding: 10px;
+  min-height: 50px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#item-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  color: var(--pixel-gold);
+  margin: 0;
+  text-transform: uppercase;
 }
 
 /* ANIMATIONS */
@@ -672,77 +771,26 @@ canvas {
   animation: blink 0.8s infinite;
 }
 
-/* Inventory Sidebar Container */
-.inventory-container {
-  width: 220px;
-  min-height: 400px; 
-  background: rgba(20, 20, 20, 0.95);
-  border: 4px solid #fff;
-  padding: 15px;
-  box-shadow: 6px 6px 0px #000;
-  flex-shrink: 0;
-}
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 992px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-main {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
-.inventory-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
-  color: var(--pixel-gold);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* 2-Column Grid */
-.inventory-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.inventory-slot {
-  aspect-ratio: 1 / 1;
-  background: #333;
-  border: 2px solid #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-  transition: all 0.1s steps(2);
-}
-
-.inventory-slot:not(.empty):hover {
-  background: #444;
-  border-color: var(--pixel-gold);
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
-}
-
-.inventory-slot.empty {
-  background: rgba(0, 0, 0, 0.3);
-  border-style: dashed;
-  border-color: #222;
-}
-
-.slot-icon {
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-/* Item Description Box at the bottom of inventory */
-.item-description-box {
-  background: #000;
-  border: 2px solid #fff;
-  padding: 10px;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#item-label {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.5rem;
-  color: var(--pixel-gold);
-  margin: 0;
-  text-transform: uppercase;
+  .inventory-container {
+    width: 100%;
+    max-width: 400px;
+    min-height: 350px;
+  }
+  
+  .portrait-box {
+    margin-bottom: 10px;
+  }
 }
