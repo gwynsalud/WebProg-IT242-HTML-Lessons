@@ -575,7 +575,7 @@ canvas {
 .dialogue-wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  align-items: flex-start !important; /* Ensures portrait stays at the top of the box */
+  align-items: flex-start !important;
 }
 
 /* PORTRAIT */
