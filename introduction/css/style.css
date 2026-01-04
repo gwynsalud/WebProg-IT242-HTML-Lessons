@@ -648,8 +648,8 @@ canvas {
 
 /* INVENTORY CONTAINER */
 .inventory-container {
-  width: 240px;
-  background: rgba(0, 0, 0, 0.85);
+  width: 260px;
+  background: rgba(0, 0, 0, 0.9);
   border: 4px solid #fff;
   padding: 20px;
   box-shadow: 0 0 0 4px #000;
