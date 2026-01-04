@@ -734,10 +734,3 @@ canvas {
     min-height: auto;
   }
 }
-
-@media (max-width: 576px) {
-  .profile-group {
-    flex-direction: column;
-    align-items: center;
-  }
-}
