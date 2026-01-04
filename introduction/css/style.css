@@ -266,6 +266,10 @@ canvas {
   transition: transform 0.1s steps(2);
 }
 
+.profile-group {
+  display: flex;
+  align-items: flex-start;
+
 /* Content inside the card */
 .profile-img-wrapper {
   flex: 1;
@@ -515,6 +519,8 @@ canvas {
 
 /* QUEST NOTIFICATION */
 .quest-anchor {
+  margin-top: 40px;
+  margin-bottom: 20px;
   perspective: 1000px;
   width: 100%;
   display: flex;
@@ -577,6 +583,7 @@ canvas {
   border: 4px solid #fff;
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
+  margin: 0;
 }
 
 .pixel-portrait {
@@ -673,9 +680,10 @@ canvas {
   border-color: var(--pixel-gold);
 }
 
-.slot-icon {
-  font-size: 1.5rem;
-  color: #fff;
+.slot-image {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
 }
 
 .inventory-slot.empty {
@@ -724,5 +732,12 @@ canvas {
   .inventory-container {
     width: 100%;
     min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-group {
+    flex-direction: column;
+    align-items: center;
   }
 }
