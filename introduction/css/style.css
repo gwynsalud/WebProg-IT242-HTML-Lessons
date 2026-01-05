@@ -1453,3 +1453,95 @@ canvas {
 @keyframes blinker {
     50% { opacity: 0; }
 }
+
+/* Portal Visual Decor */
+.portal-rings {
+    width: 60px;
+    height: 10px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(to right, #00d4ff 0, #00d4ff 5px, transparent 5px, transparent 15px);
+    animation: portal-drift 2s linear infinite;
+}
+
+@keyframes portal-drift {
+    0% { transform: scaleX(1); opacity: 0.5; }
+    50% { transform: scaleX(1.5); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0.5; }
+}
+
+.rpg-btn-portal {
+    display: inline-block;
+    padding: 22px 45px;
+    background: #000;
+    border: 4px double #00d4ff; /* Double border for "Magic" feel */
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transition: all 0.2s steps(2);
+}
+
+.rpg-btn-portal:hover {
+    background: #00d4ff;
+    color: #000;
+    box-shadow: 0 0 40px #00d4ff;
+    transform: scale(1.05);
+}
+
+.portal-text { display: block; font-size: 0.9rem; }
+.portal-sub { display: block; font-size: 0.5rem; margin-top: 10px; color: #fff; opacity: 0.7; }
+
+/* PICTURE GALLERY SECTION */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.memory-shard {
+    background: #fff; /* Classic Polaroid look */
+    padding: 15px 15px 40px 15px;
+    border: 2px solid #ddd;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.5);
+    transition: all 0.3s steps(4);
+    transform: rotate(var(--rotation, -2deg));
+}
+
+/* Give each shard a random-looking rotation */
+.memory-shard:nth-child(even) { --rotation: 2deg; }
+.memory-shard:nth-child(3n) { --rotation: -1.5deg; }
+
+.memory-shard:hover {
+    transform: rotate(0deg) scale(1.1);
+    z-index: 10;
+    box-shadow: 15px 15px 0px #00d4ff;
+    border-color: #00d4ff;
+}
+
+.shard-frame {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+}
+
+.shard-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%) contrast(1.2); /* Retro photo filter */
+    transition: filter 0.3s;
+}
+
+.memory-shard:hover img {
+    filter: grayscale(0%) contrast(1);
+}
+
+.shard-caption {
+    margin-top: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: #333;
+    text-align: center;
+}
