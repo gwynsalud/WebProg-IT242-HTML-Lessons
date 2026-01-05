@@ -9,3 +9,15 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 observer.observe(document.querySelector('#about'));
+
+document.querySelectorAll('.skill-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    const skill = item.getAttribute('data-skill');
+    const mastery = item.getAttribute('data-mastery');
+    document.getElementById('skill-desc').innerText = `SKILL: ${skill} | CLASS: ${mastery}`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    document.getElementById('skill-desc').innerText = "Hover over a skill to see mastery level.";
+  });
+});
