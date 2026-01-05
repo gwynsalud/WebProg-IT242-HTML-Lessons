@@ -1342,3 +1342,114 @@ canvas {
 .ambition-text { display: block; font-size: 0.8rem; }
 .ambition-sub { display: block; font-size: 0.45rem; margin-top: 8px; opacity: 0.8; }
 
+/* GOAL CARDS BASE */
+.goal-card {
+    background: rgba(10, 10, 10, 0.95);
+    border: 3px solid #333;
+    padding: 30px;
+    position: relative;
+    overflow: hidden; /* Important for scanline */
+    box-shadow: 10px 10px 0px #000;
+    transition: all 0.3s steps(4);
+}
+
+/* THE SCANLINE EFFECT */
+.scanline {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 255, 0, 0.05),
+        transparent
+    );
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+/* DECRYPTING STYLE (Green/Tech) */
+.decryption-active {
+    border-color: #0f0;
+}
+.decryption-active .goal-title {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    text-shadow: 2px 2px 0px #050;
+}
+
+/* LEGENDARY GLITCH STYLE (Pink/Purple) */
+.legendary-glitch {
+    border-color: #ff00ff;
+}
+.legendary-glitch:hover {
+    animation: glitch-wiggle 0.2s infinite;
+}
+
+@keyframes glitch-wiggle {
+    0% { transform: translate(2px, 0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    75% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* UI ELEMENTS */
+.goal-status {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: #0f0;
+}
+
+.goal-rarity {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+}
+
+.goal-description {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+/* LOADING BARS */
+.loading-container {
+    margin-top: 20px;
+}
+.loading-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+.loading-bar {
+    height: 10px;
+    background: #111;
+    border: 1px solid #444;
+}
+.loading-fill {
+    height: 100%;
+    background: #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+.locked-bar .loading-fill {
+    background: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.blink {
+    animation: blinker 1s steps(2) infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
