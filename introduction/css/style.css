@@ -956,3 +956,108 @@ canvas {
 
 .btn-text { display: block; font-size: 0.8rem; }
 .btn-subtext { display: block; font-size: 0.45rem; margin-top: 5px; opacity: 0.7; }
+
+/* SKILLS SECTION THEME */
+#skills {
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+}
+
+/* Panels */
+.status-panel, .spellbook-panel {
+  background: rgba(0, 0, 0, 0.8);
+  border: 4px solid #fff;
+  box-shadow: 10px 10px 0px #000;
+  height: 100%;
+}
+
+.panel-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: var(--pixel-gold);
+  border-bottom: 2px solid #333;
+  padding-bottom: 15px;
+}
+
+/* Attribute Bars */
+.stat-name, .stat-val {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+.stat-bar-container {
+  height: 12px;
+  background: #222;
+  border: 2px solid #fff;
+  padding: 2px;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.stat-bar-fill.int { background: #00d4ff; color: #00d4ff; }
+.stat-bar-fill.str { background: #ff4d4d; color: #ff4d4d; }
+.stat-bar-fill.agi { background: #4dff4d; color: #4dff4d; }
+.stat-bar-fill.lck { background: #ffd700; color: #ffd700; }
+
+/* Skill Grid */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.1s steps(2);
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-icon-box {
+  width: 60px;
+  height: 60px;
+  background: #111;
+  border: 2px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-icon-box img {
+  width: 70%;
+  image-rendering: pixelated;
+}
+
+.skill-item:hover .skill-icon-box {
+  border-color: var(--pixel-gold);
+  box-shadow: 0 0 15px var(--pixel-gold);
+}
+
+.skill-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.45rem;
+  color: #aaa;
+}
+
+/* Info Box */
+.skill-info-footer {
+  background: #000;
+  border: 2px dashed #444;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  color: #0f0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
