@@ -213,7 +213,7 @@ canvas {
   text-align: left;
   margin-bottom: 2rem;
   width: 100%;
-  display: block;
+  /* display: block; */
 }
 
 #characters .rpg-title {
