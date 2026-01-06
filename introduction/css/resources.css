@@ -1,0 +1,94 @@
+/* TERMINAL THEME */
+:root {
+    --terminal-green: #00ff41;
+    --terminal-dark: #0a0a0a;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--terminal-dark);
+}
+
+.terminal-header-bar {
+    border: 2px solid var(--terminal-green);
+    color: var(--terminal-green);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+}
+
+.terminal-window {
+    background: #000;
+    border: 2px solid #333;
+    box-shadow: 10px 10px 0px #1a1a1a;
+}
+
+.window-top {
+    background: #333;
+    color: #fff;
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* File Row Styles */
+.file-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #222;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.file-row:hover {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--terminal-green);
+}
+
+.file-name {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.file-size {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Gear List */
+.gear-list {
+    list-style: none;
+    padding: 0;
+}
+
+.gear-list li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.gear-cat {
+    color: var(--pixel-gold);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.system-log {
+    font-size: 0.75rem;
+    color: #008f11;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+}
+
+.back-link {
+    font-family: 'Press Start 2P', cursive;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.back-link:hover {
+    color: #fff;
+}
