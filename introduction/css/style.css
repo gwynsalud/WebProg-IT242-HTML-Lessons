@@ -208,15 +208,13 @@ canvas {
 }
 
 #characters .section-header {
-  position: absolute;
-  top: 110px;
-  left: 12%;
-  transform: none;
-  width: auto;
+  font-size: clamp(1.2rem, 2.5vw, 2rem); 
+  color: #fff;
   text-align: left;
-  margin: 0;
-  z-index: 10;
-  font-size: clamp(1.2rem, 4vw, 2rem); 
+  margin-bottom: 2rem;
+  width: 100%;
+  display: block;
+  padding-left: 2px;
 }
 
 #characters .rpg-title {
@@ -238,6 +236,13 @@ canvas {
 @media (max-width: 768px) {
   #characters .row { display: block; }
   .character-grid { margin-bottom: 40px; }
+  #characters .col-md-5 {
+    align-items: center !important;
+  }
+  #characters .section-header {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 /* The Grid Container */
