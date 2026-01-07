@@ -753,16 +753,16 @@
         <div class="col-md-6">
           <div class="terminal-window p-4 mb-4">
             <div class="window-top p-2">NEW ENTRY: SIGN THE LEDGER</div>
-            <form @submit.prevent="addEntry" class="p-3">
+            <form @submit.prevent="addEntry" class="p-1 p-md-3">
               <div class="mb-3">
                 <label class="form-label quest-label">TRAVELER NAME</label>
                 <input v-model="newName" type="text" class="rpg-input w-100" placeholder="Enter Hero Name..." required>
               </div>
-              <div class="mb-3">
-                <label class="form-label quest-label">MESSAGE</label>
+              <div class="mb-4"> <label class="form-label quest-label">MESSAGE</label>
                 <textarea v-model="newMessage" class="rpg-input w-100" rows="3" placeholder="Leave a word for the dev..." required></textarea>
               </div>
-              <button type="submit" class="rpg-btn-gold w-100">SIGN LEDGER</button>
+              
+              <button type="submit" class="rpg-btn-gold">SIGN LEDGER</button>
             </form>
           </div>
         </div>
