@@ -831,7 +831,11 @@ canvas {
 }
 
 .guild-name {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+}
+
+.specialization {
+  font-size: 1rem;
 }
 
 /* Relic Styling */
