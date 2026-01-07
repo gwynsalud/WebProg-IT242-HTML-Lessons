@@ -1590,6 +1590,7 @@ canvas {
     padding: 12px 0; 
     font-size: 0.8rem;
     letter-spacing: 1px;
+    align-text: center;
 
     width: 100%; 
     display: block;
