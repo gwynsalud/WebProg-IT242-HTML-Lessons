@@ -1,39 +1,36 @@
+const { createApp } = Vue;
+
 createApp({
   data() {
     return {
       newName: '',
       newMessage: '',
       submitted: false,
-      entries: [] 
+      entries: JSON.parse(localStorage.getItem('rpg_guestbook')) || []
     }
-  },
-  mounted() {
-    // SYNC DATA
-    db.ref('guestbook').on('value', (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        // Convert object to array and reverse it (newest first)
-        this.entries = Object.values(data).reverse();
-      }
-    });
   },
   methods: {
     addEntry() {
-      // SAVE DATA
-      const newPostKey = db.ref().child('guestbook').push().key;
-      const entryData = {
+      const entry = {
         name: this.newName,
         message: this.newMessage,
         date: new Date().toLocaleDateString()
       };
+      
+      this.entries.unshift(entry);
+      localStorage.setItem('rpg_guestbook', JSON.stringify(this.entries));
+      
+      // Trigger Success State
+      this.submitted = true;
+      
+      // Clear Form
+      this.newName = '';
+      this.newMessage = '';
 
-      db.ref('guestbook/' + newPostKey).set(entryData)
-        .then(() => {
-          this.submitted = true;
-          this.newName = '';
-          this.newMessage = '';
-          setTimeout(() => { this.submitted = false; }, 3000);
-        });
+      // Reset the button after 3 seconds
+      setTimeout(() => {
+        this.submitted = false;
+      }, 3000);
     }
   }
 }).mount('#guestbook-app');
