@@ -1584,3 +1584,43 @@ canvas {
     margin-top: 10px;
     opacity: 0.8;
 }
+
+/* GUEST BOOK SECTION */
+.rpg-input {
+  background: #111;
+  border: 2px solid #444;
+  color: #fff;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  outline: none;
+}
+
+.rpg-input:focus {
+  border-color: var(--pixel-gold);
+  box-shadow: 0 0 5px var(--pixel-gold);
+}
+
+.quest-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #aaa;
+}
+
+.visitor-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar for the list */
+.visitor-list::-webkit-scrollbar {
+  width: 5px;
+}
+.visitor-list::-webkit-scrollbar-thumb {
+  background: var(--pixel-gold);
+}
+
+.visitor-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
