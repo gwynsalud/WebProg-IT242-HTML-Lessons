@@ -21,3 +21,12 @@ document.querySelectorAll('.skill-item').forEach(item => {
     document.getElementById('skill-desc').innerText = "Hover over a skill to see mastery level.";
   });
 });
+
+window.onscroll = function() {
+    const scrollBtn = document.getElementById("scroll-to-top");
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        scrollBtn.classList.add("visible");
+    } else {
+        scrollBtn.classList.remove("visible");
+    }
+};
