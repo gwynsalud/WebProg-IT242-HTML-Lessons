@@ -812,7 +812,7 @@ canvas {
 
 .tree-row {
   display: flex;
-  align-items: flex-start; /* Aligns to top of card */
+  align-items: flex-start;
   margin-bottom: 80px;
   position: relative;
   z-index: 2;
@@ -828,6 +828,10 @@ canvas {
   justify-content: center;
   position: sticky;
   top: 50%;
+}
+
+.guild-name {
+  font-size: 0.9rem;
 }
 
 /* Relic Styling */
@@ -975,7 +979,6 @@ canvas {
 }
 
 .panel-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.8rem;
   color: var(--pixel-gold);
   border-bottom: 2px solid #333;
@@ -984,7 +987,6 @@ canvas {
 
 /* Attribute Bars */
 .stat-name, .stat-val {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.6rem;
   color: #fff;
 }
