@@ -828,6 +828,21 @@
   <script src="js/script.js"></script>
   <script src="js/vue.js"></script>
 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    const firebaseConfig = {
+      databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
 </body>
 
 </html>
