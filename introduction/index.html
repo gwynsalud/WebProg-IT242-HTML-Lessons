@@ -725,7 +725,6 @@
             <div class="shard-caption">My Favorite Sanrio Character</div>
           </div>
 
-          <div class="gallery-grid">
           <div class="memory-shard">
             <div class="shard-frame">
               <img src="assets/images/jiji.png" alt="Memory 6: Jiji">
@@ -768,7 +767,7 @@
   </section>
 
 
-  <!-- ================= GALLERY ================= -->
+  <!-- ================= GUEST BOOK ================= -->
    <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
     <div class="container" id="guestbook-app">
       <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
@@ -786,7 +785,12 @@
                 <textarea v-model="newMessage" class="rpg-input w-100" rows="3" placeholder="Leave a word for the dev..." required></textarea>
               </div>
               
-              <button type="submit" class="rpg-btn-gold">SIGN LEDGER</button>
+              <button type="submit" class="rpg-btn-gold" :class="{ 'success-state': submitted }" :disabled="submitted">
+                <span v-if="!submitted">SIGN LEDGER</span>
+                <span v-else>
+                  <span class="checkmark">✔</span> QUEST COMPLETE!
+                </span>
+              </button>
             </form>
           </div>
         </div>

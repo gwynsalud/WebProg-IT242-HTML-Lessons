@@ -1651,6 +1651,33 @@ canvas {
 }
 
 .visitor-name {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
+}
+
+/* Success State for the Button */
+.success-state {
+    background-color: #00ff41 !important;
+    color: #000 !important;
+    border-color: #008f11 !important;
+    cursor: default;
+}
+
+.checkmark {
+    display: inline-block;
+    animation: bounce 0.5s steps(2) infinite;
+    margin-right: 10px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.visitor-card {
+    animation: fadeIn 0.5s steps(4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
 }
