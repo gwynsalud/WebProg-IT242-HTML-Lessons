@@ -200,12 +200,21 @@ canvas {
 
 /* =============== CHARACTER SELECTION =============== */
 #characters {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('https://www.shutterstock.com/image-vector/pixel-art-city-game-level-600nw-2515685417.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* #characters {
   position: relative;
   background-color: var(--pixel-section-mid);
   color: var(--pixel-white);
   min-height: 100vh; 
   overflow: hidden;
-}
+} */
 
 #characters .section-header {
   font-size: clamp(1.2rem, 2.5vw, 2rem); 
