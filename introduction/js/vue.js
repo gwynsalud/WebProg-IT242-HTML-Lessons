@@ -37,22 +37,29 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+  console.log("1. App starting...");
+
   // --- 1. FIREBASE SETUP ---
   const firebaseConfig = {
     databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/", 
   };
   
-  // Initialize Firebase once
+  // Initialize Firebase (Safeguard against double-init)
+  if (typeof firebase === 'undefined') {
+    console.error("Firebase SDK not loaded! Check your HTML script tags.");
+    return;
+  }
+  
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
+    console.log("2. Firebase initialized");
   }
   const db = firebase.database();
 
   // --- 2. VUE APPLICATION ---
   const { createApp } = Vue;
 
-  createApp({
+  const app = createApp({
     data() {
       return {
         gameStarted: false,
@@ -60,24 +67,41 @@ document.addEventListener('DOMContentLoaded', () => {
         newName: '',
         newMessage: '',
         submitted: false,
-        entries: []
+        entries: [] // This holds your data
       }
     },
     mounted() {
+      console.log("3. Vue Mounted successfully!");
+      
+      // Initialize Scroll Lock
       this.checkInitialLock();
 
-      // Re-added the error handling block from your working version
-      db.ref('guestbook').on('value', (snapshot) => {
+      // --- LISTEN FOR DATA ---
+      console.log("4. Listening for database changes...");
+      const guestbookRef = db.ref('guestbook');
+      
+      guestbookRef.on('value', (snapshot) => {
         const data = snapshot.val();
+        console.log("5. Data received from Firebase:", data); // Check your Console for this!
+
         if (data) {
-          this.entries = Object.keys(data).map(key => data[key]).reverse();
+          // Convert object (Firebase format) to Array (Vue format)
+          this.entries = Object.keys(data).map(key => {
+            return { 
+              id: key, 
+              ...data[key] 
+            };
+          }).reverse(); // Show newest first
         } else {
+          console.warn("Database is empty or path is wrong.");
           this.entries = [];
         }
       }, (error) => {
         console.error("Firebase Read Error:", error);
+        alert("Cannot load guestbook. Check console for permission errors.");
       });
 
+      // Keyboard Shortcuts
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' || e.key.toLowerCase() === 'p') {
           this.togglePause();
@@ -105,16 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       togglePause() {
         this.isPaused = !this.isPaused;
-        if (this.isPaused) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
-        }
+        document.body.style.overflow = this.isPaused ? 'hidden' : (this.gameStarted ? 'auto' : 'hidden');
       },
 
       navigateTo(sectionId) {
         this.isPaused = false;
-        // Restore overflow based on game state
         document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
         
         this.$nextTick(() => {
@@ -143,9 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
           })
           .catch(err => {
             console.error("Database Write Error:", err);
-            alert("Database Error: Check Console.");
+            alert("Could not write to database. Check rules.");
           });
       }
     }
-  }).mount('#guestbook-app');
+  });
+
+  // MOUNT TO THE DIV
+  // Make sure your HTML has <div id="guestbook-app"> wrapping the content
+  app.mount('#guestbook-app');
 });
