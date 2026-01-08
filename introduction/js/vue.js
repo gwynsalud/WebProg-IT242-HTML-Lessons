@@ -1,62 +1,98 @@
-// Firebase Configuration
-const firebaseConfig = {
-  databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/",
-};
+// const { createApp } = Vue;
 
-// Initialize
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+// createApp({
+//   data() {
+//     return {
+//       newName: '',
+//       newMessage: '',
+//       submitted: false,
+//       entries: JSON.parse(localStorage.getItem('rpg_guestbook')) || []
+//     }
+//   },
+//   methods: {
+//     addEntry() {
+//       const entry = {
+//         name: this.newName,
+//         message: this.newMessage,
+//         date: new Date().toLocaleDateString()
+//       };
+      
+//       this.entries.unshift(entry);
+//       localStorage.setItem('rpg_guestbook', JSON.stringify(this.entries));
+      
+//       // Trigger Success State
+//       this.submitted = true;
+      
+//       // Clear Form
+//       this.newName = '';
+//       this.newMessage = '';
+
+//       // Reset the button after 3 seconds
+//       setTimeout(() => {
+//         this.submitted = false;
+//       }, 3000);
+//     }
+//   }
+// }).mount('#guestbook-app');
+
 
 const { createApp } = Vue;
+
+// 1. Initialize Firebase (Ensure this is outside the Vue app)
+const firebaseConfig = {
+  databaseURL: "YOUR_DATABASE_URL_HERE", 
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
 createApp({
   data() {
     return {
       newName: '',
       newMessage: '',
-      submitted: false,
+      submitted: false, // This controls the button text
       entries: []
     }
   },
   mounted() {
-    // Sync from Firebase
+    // Sync data from Firebase
     db.ref('guestbook').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const result = Object.keys(data).map(key => data[key]);
-        this.entries = result.reverse(); // Newest travelers at the top
+        // Convert object to array and reverse for newest-first display
+        this.entries = Object.keys(data).map(key => data[key]).reverse();
       }
     });
   },
   methods: {
     addEntry() {
-      // Basic validation
-      if (!this.newName.trim() || !this.newMessage.trim()) return;
+      // Prevent accidental double-clicks or empty submissions
+      if (this.submitted || !this.newName.trim() || !this.newMessage.trim()) return;
 
-      const entry = {
+      const entryData = {
         name: this.newName,
         message: this.newMessage,
         date: new Date().toLocaleDateString()
       };
-      
-      // Save to Firebase
-      db.ref('guestbook').push(entry)
+
+      // Push to Firebase
+      db.ref('guestbook').push(entryData)
         .then(() => {
-          // Trigger Success State
+          // ONLY trigger "Quest Complete" once the database confirms success
           this.submitted = true;
           
-          // Clear Form
+          // Clear inputs
           this.newName = '';
           this.newMessage = '';
 
-          // Reset the button after 3 seconds
+          // Reset button back to "SIGN LEDGER" after 3 seconds
           setTimeout(() => {
             this.submitted = false;
           }, 3000);
         })
-        .catch(error => {
-          console.error("Database Error:", error);
-          alert("Could not sign the ledger. Check your Firebase Rules!");
+        .catch(err => {
+          console.error("Database Error:", err);
+          alert("Guild Ledger is locked! Check security rules.");
         });
     }
   }

@@ -766,7 +766,7 @@
 
 
   <!-- ================= GUEST BOOK ================= -->
-   <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
+   <!-- <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
     <div class="container" id="guestbook-app">
       <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
 
@@ -810,8 +810,62 @@
         </div>
       </div>
     </div>
-  </section>
-  
+  </section> -->
+
+
+  <!-- TESTING SECTION -->
+  <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
+    <div class="container" id="guestbook-app">
+      <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="terminal-window p-4 mb-4">
+            <div class="window-top p-2">NEW ENTRY: SIGN THE LEDGER</div>
+            <form @submit.prevent="addEntry" class="p-1 p-md-3">
+              <div class="mb-3">
+                <label class="form-label quest-label">TRAVELER NAME</label>
+                <input v-model="newName" type="text" class="rpg-input w-100" placeholder="Enter Hero Name..." required>
+              </div>
+              <div class="mb-4"> <label class="form-label quest-label">MESSAGE</label>
+                <textarea v-model="newMessage" class="rpg-input w-100" rows="3" placeholder="Leave a word for the dev..." required></textarea>
+              </div>
+              
+              <button type="submit" 
+                      class="rpg-btn-gold" 
+                      :class="{ 'success-state': submitted }" 
+                      :disabled="submitted">
+                      
+                <span v-if="!submitted">SIGN LEDGER</span>
+                
+                <span v-else>
+                  <span class="checkmark">✔</span> QUEST COMPLETE!
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="ledger-box">
+            <h4 class="stat-header mb-3">RECENT VISITORS</h4>
+            <div class="visitor-list">
+              <div v-for="(entry, index) in entries" :key="index" class="visitor-card mb-3 p-2 border-bottom border-secondary">
+                <div class="d-flex justify-content-between">
+                  <span class="visitor-name text-warning">> {{ entry.name }}</span>
+                  <span class="visitor-date" style="font-size: 0.6rem;">{{ entry.date }}</span>
+                </div>
+                <p class="visitor-msg mb-0 mt-1" style="font-size: 0.8rem;">"{{ entry.message }}"</p>
+              </div>
+              <div v-if="entries.length === 0" class="text-secondary text-center">No one has signed yet...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  <!-- SPAWN ANCHOR BUTTON-->
   <div id="scroll-to-top" class="spawn-anchor">
       <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="rpg-btn-scroll">
         <span class="scroll-icon">📜</span>
