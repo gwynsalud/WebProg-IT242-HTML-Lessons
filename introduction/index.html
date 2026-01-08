@@ -447,8 +447,6 @@
       </div>
 
     </div>
-
-    
   </section>
 
 
@@ -655,50 +653,50 @@
 
   <section id="goals" class="py-5 min-vh-100">
     <div class="container">
-        <h2 class="rpg-title text-center mb-5">Main Goals and Objectives</h2>
+      <h2 class="rpg-title text-center mb-5">Main Goals and Objectives</h2>
         
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-5">
-                <div class="goal-card decryption-active">
-                    <div class="scanline"></div>
-                    <div class="goal-header d-flex justify-content-between">
-                        <span class="goal-status blink">[DECRYPTING...]</span>
-                        <span class="goal-rarity">EPIC</span>
-                    </div>
-                    <h3 class="goal-title">MASTER: FULL-STACK PROGRAMMING</h3>
-                    <p class="goal-description">"Continue leveling up technical skills while gaining real-world experience through projects, internships, and hands-on learning."</p>
-                    <div class="loading-container">
-                        <div class="loading-label">SYNCING DATA: 40%</div>
-                        <div class="loading-bar"><div class="loading-fill" style="width: 40%;"></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="goal-card legendary-glitch">
-                    <div class="goal-header d-flex justify-content-between">
-                        <span class="goal-status">[LOCKED]</span>
-                        <span class="goal-rarity" style="color: #ff00ff;">LEGENDARY</span>
-                    </div>
-                    <h3 class="goal-title">BE A RICH SINGLE TITA</h3>
-                    <p class="goal-description">"The ultimate endgame quest. Create meaningful impact for individuals and communities."</p>
-                    <div class="loading-container">
-                        <div class="loading-label">REQUIREMENT: LVL 99 EXPERTISE</div>
-                        <div class="loading-bar locked-bar"><div class="loading-fill" style="width: 20%;"></div></div>
-                    </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-5">
+            <div class="goal-card decryption-active">
+                <div class="scanline"></div>
+                  <div class="goal-header d-flex justify-content-between">
+                    <span class="goal-status blink">[DECRYPTING...]</span>
+                    <span class="goal-rarity">EPIC</span>
                   </div>
-                </div>
-              </div>
-              <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <div class="portal-rings mb-4"></div>
-                    <a href="#gallery" class="rpg-btn-portal">
-                        <span class="portal-text">ENTER THE ARCHIVE</span>
-                        <span class="portal-sub">View Memory Shards & Photos</span>
-                    </a>
-                </div>
-              </div>
+                  <h3 class="goal-title">MASTER: FULL-STACK PROGRAMMING</h3>
+                  <p class="goal-description">"Continue leveling up technical skills while gaining real-world experience through projects, internships, and hands-on learning."</p>
+                  <div class="loading-container">
+                    <div class="loading-label">SYNCING DATA: 40%</div>
+                      <div class="loading-bar"><div class="loading-fill" style="width: 40%;"></div></div>
+                  </div>
             </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="goal-card legendary-glitch">
+            <div class="goal-header d-flex justify-content-between">
+              <span class="goal-status">[LOCKED]</span>
+              <span class="goal-rarity" style="color: #ff00ff;">LEGENDARY</span>
+            </div>
+            <h3 class="goal-title">BE A RICH SINGLE TITA</h3>
+            <p class="goal-description">"The ultimate endgame quest. Create meaningful impact for individuals and communities."</p>
+            <div class="loading-container">
+              <div class="loading-label">REQUIREMENT: LVL 99 EXPERTISE</div>
+                <div class="loading-bar locked-bar"><div class="loading-fill" style="width: 20%;"></div></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <div class="portal-rings mb-4"></div>
+            <a href="#gallery" class="rpg-btn-portal">
+              <span class="portal-text">ENTER THE ARCHIVE</span>
+              <span class="portal-sub">View Memory Shards & Photos</span>
+            </a>
+          </div>
+        </div>
+      </div>
   </section>
   
   <!-- ================= GALLERY ================= -->
@@ -782,62 +780,12 @@
             </a>
           </div>
         </div>
-    </div>
-
     
+    </div>
   </section>
   
 
-
   <!-- ================= GUEST BOOK ================= -->
-   <!-- <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
-    <div class="container" id="guestbook-app">
-      <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
-
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="terminal-window p-4 mb-4">
-            <div class="window-top p-2">NEW ENTRY: SIGN THE LEDGER</div>
-            <form @submit.prevent="addEntry" class="p-1 p-md-3">
-              <div class="mb-3">
-                <label class="form-label quest-label">TRAVELER NAME</label>
-                <input v-model="newName" type="text" class="rpg-input w-100" placeholder="Enter Hero Name..." required>
-              </div>
-              <div class="mb-4"> <label class="form-label quest-label">MESSAGE</label>
-                <textarea v-model="newMessage" class="rpg-input w-100" rows="3" placeholder="Leave a word for the dev..." required></textarea>
-              </div>
-              
-              <button type="submit" class="rpg-btn-gold" :class="{ 'success-state': submitted }" :disabled="submitted">
-                <span v-if="!submitted">SIGN LEDGER</span>
-                <span v-else>
-                  <span class="checkmark">✔</span> QUEST COMPLETE!
-                </span>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div class="col-md-5">
-          <div class="ledger-box">
-            <h4 class="stat-header mb-3">RECENT VISITORS</h4>
-            <div class="visitor-list">
-              <div v-for="(entry, index) in entries" :key="index" class="visitor-card mb-3 p-2 border-bottom border-secondary">
-                <div class="d-flex justify-content-between">
-                  <span class="visitor-name text-warning">> {{ entry.name }}</span>
-                  <span class="visitor-date" style="font-size: 0.6rem;">{{ entry.date }}</span>
-                </div>
-                <p class="visitor-msg mb-0 mt-1" style="font-size: 0.8rem;">"{{ entry.message }}"</p>
-              </div>
-              <div v-if="entries.length === 0" class="text-secondary text-center">No one has signed yet...</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-
-  <!-- TESTING SECTION -->
   <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
     <div class="container" id="guestbook-app" v-cloak>
       <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
@@ -907,8 +855,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 
   <script src="js/vue.js"></script>
-
-  
 
 </body>
 

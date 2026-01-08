@@ -557,12 +557,6 @@ canvas {
 }
 
 /* ===== ABOUT ME / PERSONAL PROFILE ===== */
-/* #about {
-  position: relative;
-  background-color: var(--pixel-section-dark);
-  min-height: 100vh;
-  padding: 100px 0 50px 0;
-} */
 
 #about {
   background: 
@@ -1413,6 +1407,17 @@ canvas {
 .ambition-sub { display: block; font-size: 0.45rem; margin-top: 8px; opacity: 0.8; }
 
 /* GOAL CARDS BASE */
+#goals {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('https://i.pinimg.com/originals/45/d0/79/45d0790c293e5dba3077f4ad0c4826c6.gif') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 100px 0 50px 0;
+}
+
 .goal-card {
     background: rgba(10, 10, 10, 0.95);
     border: 3px solid #333;
