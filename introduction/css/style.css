@@ -1180,6 +1180,17 @@ canvas {
 }
 
 /* Bloe Skills Education */
+#experience {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('https://i.pinimg.com/236x/6a/ea/37/6aea3792b2c6b174247fc30aceb3c78b.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 100px 0 50px 0;
+}
+
 .experience-timeline {
   max-width: 900px;
   margin: 0 auto;
