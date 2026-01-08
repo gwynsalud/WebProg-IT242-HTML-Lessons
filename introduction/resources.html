@@ -35,12 +35,10 @@
 
                     <div class="card-face card-front">
                         <div class="card-type-label">{{ item.category.toUpperCase() }}</div>
-                        <div class="card-content">
-                            <div class="icon-frame">{{ item.icon }}</div>
-                            <h4 class="item-name">{{ item.name }}</h4>
-                            <p class="item-desc">{{ item.desc }}</p>
-                        </div>
-                        <a :href="item.url" target="_blank" class="pixel-btn" @click.stop>OPEN LINK</a>
+                        <div class="icon-frame">{{ item.icon }}</div>
+                        <h4 class="item-name">{{ item.name }}</h4>
+                        <p class="item-desc">{{ item.desc }}</p>
+                        <a :href="item.url" target="_blank" class="pixel-btn" @click.stop>VIEW SOURCE</a>
                     </div>
                 </div>
             </div>
