@@ -19,7 +19,31 @@
 </head>
 
 <body>
-  
+  <div id="pause-system">
+    <button class="pause-btn" @click="togglePause">
+      <span v-if="!isPaused">〓 PAUSE</span>
+      <span v-else>▶ RESUME</span>
+    </button>
+
+    <transition name="fade">
+      <div v-if="isPaused" class="pause-overlay">
+        <div class="menu-content text-center">
+          <h2 class="menu-title mb-5">- GAME PAUSED -</h2>
+          
+          <nav class="menu-links">
+            <a href="#start-menu" @click="navigateTo('start-menu')">START MENU</a>
+            <a href="#characters" @click="navigateTo('characters')">CHARACTER SELECTION</a>
+            <a href="#projects" @click="navigateTo('projects')">QUEST LOG</a>
+            <a href="#guestbook" @click="navigateTo('guestbook')">GUILD LEDGER</a>
+          </nav>
+
+          <div class="menu-footer mt-5">
+            <p>LVL 99 DEVELOPER PORTFOLIO</p>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
   <!-- ================= START MENU ================= -->
 
   <section id="start-menu" class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
