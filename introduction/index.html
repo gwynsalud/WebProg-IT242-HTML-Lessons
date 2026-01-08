@@ -121,7 +121,7 @@
           </div>
         </div>
 
-        <a href="#about" class="rpg-btn-gold mt-4" id="confirm-character">CONFIRM</a>
+        <button @click="unlockNextSection" class="rpg-btn-gold">CONFIRM SELECTION</button>
       </div>
 
     </div>
@@ -132,7 +132,7 @@
 
   <!-- ================= ABOUT SECTION ================= -->
   
-  <section id="about" class="min-vh-100 d-flex flex-column align-items-center">
+  <section id="about" v-if="isUnlocked" class="min-vh-100 d-flex flex-column align-items-center">
     <h2 class="rpg-title section-header-about">Player Profile</h2>
 
     <div class="container about-container flex-grow-1 d-flex flex-column justify-content-center">
