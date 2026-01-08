@@ -8,43 +8,33 @@
 
 <body class="bg-black text-white">
 
-<div class="container py-5">
+<div class="container py-5" id="resources-app" v-cloak>
     <div class="terminal-header-bar d-flex justify-content-between p-3 mb-5">
-        <div class="system-id">USER: DEVELOPER_01 // ACCESS: GRANTED</div>
-        <div class="system-clock" id="clock">00:00:00</div>
+        <div class="system-id">USER: DEVELOPER_01 // CODEX_STATUS: ONLINE</div>
+        <div class="system-clock">{{ currentTime }}</div>
     </div>
 
     <h2 class="rpg-title mb-4">THE KNOWLEDGE CODEX</h2>
     <p class="text-secondary mb-5">Accessing ancient scrolls and forbidden tech stacks...</p>
 
-    <div class="row g-5">
+    <div class="row g-4">
         <div class="col-lg-6">
-            <div class="terminal-window">
-                <div class="window-top p-2">DIRECTORY: /ASSETS/DOCUMENTS</div>
+            <div class="terminal-window h-100">
+                <div class="window-top p-2">DB_QUERY: /EDUCATION/CORE_LOGIC</div>
                 <div class="window-content p-4">
-                    <div class="file-list">
-                        <a href="assets/resume.pdf" download class="file-row">
-                            <span class="file-info">
-                                <span class="file-icon">📜</span>
-                                <span class="file-name">RESUME_V2.PDF</span>
-                            </span>
-                            <span class="file-size">842 KB</span>
+                    <div class="resource-group">
+                        <h4 class="gear-title text-warning mb-3">QUEST GUIDES (LEARNING)</h4>
+                        <a href="https://javascript.info/" target="_blank" class="file-row">
+                            <span class="file-info"><span class="file-icon">📚</span> Modern JavaScript Info</span>
+                            <span class="file-size text-success">CORE</span>
                         </a>
-
-                        <a href="#" class="file-row">
-                            <span class="file-info">
-                                <span class="file-icon">📂</span>
-                                <span class="file-name">PROJECT_SPEC_SHEETS.ZIP</span>
-                            </span>
-                            <span class="file-size">12 MB</span>
+                        <a href="https://vuejs.org/guide/" target="_blank" class="file-row">
+                            <span class="file-info"><span class="file-icon">⚡</span> Vue.js Documentation</span>
+                            <span class="file-size text-success">V3</span>
                         </a>
-
-                        <a href="https://github.com/yourusername" target="_blank" class="file-row">
-                            <span class="file-info">
-                                <span class="file-icon">🔗</span>
-                                <span class="file-name">GITHUB_REPOSITORY</span>
-                            </span>
-                            <span class="file-size">EXTERNAL</span>
+                        <a href="https://css-tricks.com/" target="_blank" class="file-row">
+                            <span class="file-info"><span class="file-icon">🎨</span> CSS Tricks Almanac</span>
+                            <span class="file-size text-success">STYLE</span>
                         </a>
                     </div>
                 </div>
@@ -52,19 +42,53 @@
         </div>
 
         <div class="col-lg-6">
-            <div class="terminal-window">
-                <div class="window-top p-2">SYSTEM_SPECS: RECOMMENDED_GEAR</div>
+            <div class="terminal-window h-100">
+                <div class="window-top p-2">DB_QUERY: /ASSETS/VISUAL_GEAR</div>
                 <div class="window-content p-4">
-                    <h4 class="gear-title">MASTER'S TOOLS</h4>
-                    <ul class="gear-list">
-                        <li><span class="gear-cat">[IDE]</span> VS CODE + VIM EXTENSION</li>
-                        <li><span class="gear-cat">[OS]</span> UBUNTU / MAC OS</li>
-                        <li><span class="gear-cat">[UI]</span> FIGMA / PIXEL EDIT</li>
-                    </ul>
-                    <hr class="border-secondary">
-                    <div class="system-log mt-3">
-                        <div class="log-entry">> Initializing secure download...</div>
-                        <div class="log-entry">> All modules up to date.</div>
+                    <h4 class="gear-title text-warning mb-3">ARTISAN TOOLS (IMAGES)</h4>
+                    <a href="https://unDraw.co" target="_blank" class="file-row">
+                        <span class="file-info"><span class="file-icon">🖼️</span> unDraw Illustrations</span>
+                        <span class="file-size">SVG</span>
+                    </a>
+                    <a href="https://lucide.dev" target="_blank" class="file-row">
+                        <span class="file-info"><span class="file-icon">✨</span> Lucide Pixel Icons</span>
+                        <span class="file-size">VECTOR</span>
+                    </a>
+                    <a href="https://coolors.co" target="_blank" class="file-row">
+                        <span class="file-info"><span class="file-icon">🌈</span> Coolors Palette Gen</span>
+                        <span class="file-size">COLOR</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="terminal-window">
+                <div class="window-top p-2">SYSTEM_LOG: PROJECT_DEPENDENCIES</div>
+                <div class="window-content p-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 class="text-secondary">[FRAMEWORKS]</h5>
+                            <ul class="gear-list">
+                                <li>Vue.js 3 (CDN)</li>
+                                <li>Bootstrap 5.3</li>
+                                <li>Firebase RTDB</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="text-secondary">[FONTS]</h5>
+                            <ul class="gear-list">
+                                <li>Press Start 2P</li>
+                                <li>Courier New</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="system-log">
+                                <div class="log-entry">> Cache cleared...</div>
+                                <div class="log-entry">> All resources verified.</div>
+                                <div class="log-entry">> System optimized.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,17 +96,13 @@
     </div>
 
     <div class="text-center mt-5">
-        <a href="index.html" class="back-link">RETURN TO MAIN CAMPAIGN</a>
+        <a href="index.html" class="back-link">← RETURN TO MAIN CAMPAIGN</a>
     </div>
 </div>
 
-<script>
-    // Simple Clock for the Terminal feel
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('clock').innerText = now.toLocaleTimeString();
-    }
-    setInterval(updateClock, 1000);
-</script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script src="js/resources.js"></script>
+
 </body>
 </html>

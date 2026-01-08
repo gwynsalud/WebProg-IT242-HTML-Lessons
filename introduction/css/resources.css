@@ -92,3 +92,46 @@ body {
 .back-link:hover {
     color: #fff;
 }
+
+/* Update gear-cat for the gold RPG feel */
+.gear-cat {
+    color: #ffcc00; /* Pixel Gold */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Ensure window content has a scroll if too long */
+.window-content {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+/* Resource grouping titles */
+.gear-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Smooth scaling on window hover */
+.terminal-window {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.terminal-window:hover {
+    transform: translateY(-5px);
+    border-color: var(--terminal-green);
+}
+
+/* Glowing text for active logs */
+.log-entry:last-child {
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
