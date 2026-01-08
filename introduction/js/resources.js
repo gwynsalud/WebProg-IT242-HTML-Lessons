@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.currentTime = new Date().toLocaleTimeString();
             }, 1000);
         }
-    }).mount('#guestbook-app');
+    }).mount('#resources-app');
 });
