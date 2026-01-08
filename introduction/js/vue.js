@@ -39,10 +39,9 @@
 window.onload = () => {
   // --- 1. FIREBASE SETUP ---
   const firebaseConfig = {
-    databaseURL: "YOUR_FIREBASE_URL", 
+    databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/", 
   };
   
-  // Initialize Firebase once
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
@@ -54,11 +53,8 @@ window.onload = () => {
   createApp({
     data() {
       return {
-        // Navigation & UI States
         gameStarted: false,
-        isPaused: false,
-        
-        // Guestbook Data
+        isPaused: false, // This MUST be false initially
         newName: '',
         newMessage: '',
         submitted: false,
@@ -66,22 +62,18 @@ window.onload = () => {
       }
     },
     mounted() {
-      // Check if user has already "Started" previously
       this.checkInitialLock();
 
-      // Sync Guestbook with Firebase
       db.ref('guestbook').on('value', (snapshot) => {
         const data = snapshot.val();
         if (data) {
           this.entries = Object.keys(data).map(key => data[key]).reverse();
-        } else {
-          this.entries = [];
         }
       });
 
-      // Global Keyboard Shortcuts (P for Pause)
+      // Keyboard shortcut to close menu
       window.addEventListener('keydown', (e) => {
-        if (this.gameStarted && (e.key === 'Escape' || e.key.toLowerCase() === 'p')) {
+        if (e.key === 'Escape' || e.key.toLowerCase() === 'p') {
           this.togglePause();
         }
       });
@@ -99,6 +91,7 @@ window.onload = () => {
 
       startGame() {
         this.gameStarted = true;
+        this.isPaused = false; // Close menu if it was open
         localStorage.setItem('site_unlocked', 'true');
         document.body.classList.remove('scroll-locked');
         this.navigateTo('characters');
@@ -106,28 +99,35 @@ window.onload = () => {
 
       togglePause() {
         this.isPaused = !this.isPaused;
-        document.body.style.overflow = this.isPaused ? 'hidden' : (this.gameStarted ? 'auto' : 'hidden');
+        // Apply scroll locking based on pause state
+        if (this.isPaused) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
+        }
       },
 
       navigateTo(sectionId) {
+        // CLOSE THE MENU FIRST
         this.isPaused = false;
         document.body.style.overflow = 'auto';
         
+        // Smooth scroll to target
         this.$nextTick(() => {
           const el = document.getElementById(sectionId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
         });
       },
 
       addEntry() {
         if (this.submitted || !this.newName.trim() || !this.newMessage.trim()) return;
-
         const entryData = {
           name: this.newName,
           message: this.newMessage,
           date: new Date().toLocaleDateString()
         };
-
         db.ref('guestbook').push(entryData).then(() => {
           this.submitted = true;
           this.newName = '';
