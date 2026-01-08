@@ -30,7 +30,12 @@
       <h1 class="rpg-title">THE LAST COMMIT</h1>
       <h2 class="rpg-subtitle">A Full-Stack Adventure</h2>
       <p class="pixel-text">Press Start to Begin</p>
-      <a href="#characters" class="rpg-btn-gold">START GAME</a>
+      <!-- <a href="#characters" class="rpg-btn-gold">START GAME</a> -->
+      <a href="#characters" 
+        class="rpg-btn-gold" 
+        @click.prevent="unlockSection('characters')">
+        START GAME
+      </a>
     </div>
 
   </section>
@@ -38,7 +43,8 @@
 
   <!-- ================= CHARACTER SELECTION SECTION ================= -->
   
-  <section id="characters" class="min-vh-100 d-flex align-items-center py-5">
+  <!-- <section id="characters" class="min-vh-100 d-flex align-items-center py-5"> -->
+  <section id="characters" v-show="unlockedSections.characters" class="fade-in-up">
   <div class="container">
     <div class="row align-items-start justify-content-center g-4 g-lg-5">
 
@@ -121,7 +127,8 @@
           </div>
         </div>
 
-        <a href="#about" class="rpg-btn-gold mt-4" id="confirm-character">CONFIRM</a>
+        <!-- <a href="#about" class="rpg-btn-gold mt-4" id="confirm-character">CONFIRM</a> -->
+         
       </div>
 
     </div>

@@ -103,3 +103,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }).mount('#guestbook-app');
 });
+
+data() {
+  return {
+    // Track which sections are visible
+    unlockedSections: {
+      characters: false,
+      about: false,
+      guestbook: true // Usually keep the first one or guestbook open?
+    }
+  }
+},
+methods: {
+  unlockSection(sectionId) {
+    // 1. Unlock the section in the DOM
+    this.unlockedSections[sectionId] = true;
+
+    // 2. Wait for Vue to render the new section, then scroll
+    this.$nextTick(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // 3. Optional: Save progress so refresh doesn't lock it again
+    localStorage.setItem('rpg_progress', JSON.stringify(this.unlockedSections));
+  }
+},
+mounted() {
+  // Load saved progress if it exists
+  const saved = localStorage.getItem('rpg_progress');
+  if (saved) {
+    this.unlockedSections = JSON.parse(saved);
+  }
+}
