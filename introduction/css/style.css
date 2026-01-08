@@ -1657,7 +1657,7 @@ canvas {
 }
 
 /* GUEST BOOK SECTION */
-#guestbook-app .rpg-btn-gold {
+#guestbook .rpg-btn-gold {
     padding: 12px 24px; 
     font-size: 0.8rem;
     letter-spacing: 1px;
@@ -1677,13 +1677,13 @@ canvas {
     cursor: pointer;
 }
 
-#guestbook-app .rpg-btn-gold:hover {
+#guestbook .rpg-btn-gold:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px #000;
     background-color: #e6b800;
 }
 
-#guestbook-app .rpg-btn-gold:active {
+#guestbook .rpg-btn-gold:active {
     transform: translate(4px, 4px);
     box-shadow: 0px 0px 0px #000;
 }
