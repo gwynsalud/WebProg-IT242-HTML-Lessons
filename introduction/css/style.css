@@ -1800,3 +1800,7 @@ canvas {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
+
+[v-cloak] {
+  display: none !important;
+}

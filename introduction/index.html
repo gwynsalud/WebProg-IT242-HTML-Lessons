@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div id="guestbook-app">
+  <div id="guestbook-app v-cloak">
   <button class="pause-btn" @click="togglePause" style="z-index: 10000;">
     <span v-if="!isPaused">〓 PAUSE</span>
     <span v-else>▶ RESUME</span>
@@ -786,7 +786,7 @@
 
     
   </section>
-  </div>
+  
 
 
   <!-- ================= GUEST BOOK ================= -->
@@ -839,7 +839,7 @@
 
   <!-- TESTING SECTION -->
   <section id="guestbook" class="py-5 min-vh-100 bg-black text-white">
-    <div class="container" id="guestbook-app">
+    <div class="container">
       <h2 class="rpg-title text-center mb-5">GUILD SIGN-IN SHEET</h2>
 
       <div class="row justify-content-center">
@@ -888,6 +888,7 @@
       </div>
     </div>
   </section> 
+  </div>
 
   <!-- SPAWN ANCHOR BUTTON-->
   <div id="scroll-to-top" class="spawn-anchor">
