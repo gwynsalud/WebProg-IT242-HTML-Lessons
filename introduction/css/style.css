@@ -512,6 +512,8 @@ canvas {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  padding: 100px 0 50px 0;
 }
 
 .section-header-about {
