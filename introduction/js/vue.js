@@ -36,12 +36,14 @@
 // }).mount('#guestbook-app');
 
 
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
+  
   // --- 1. FIREBASE SETUP ---
   const firebaseConfig = {
     databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/", 
   };
   
+  // Initialize Firebase once
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
@@ -54,7 +56,7 @@ window.onload = () => {
     data() {
       return {
         gameStarted: false,
-        isPaused: false, // This MUST be false initially
+        isPaused: false,
         newName: '',
         newMessage: '',
         submitted: false,
@@ -64,14 +66,18 @@ window.onload = () => {
     mounted() {
       this.checkInitialLock();
 
+      // Re-added the error handling block from your working version
       db.ref('guestbook').on('value', (snapshot) => {
         const data = snapshot.val();
         if (data) {
           this.entries = Object.keys(data).map(key => data[key]).reverse();
+        } else {
+          this.entries = [];
         }
+      }, (error) => {
+        console.error("Firebase Read Error:", error);
       });
 
-      // Keyboard shortcut to close menu
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' || e.key.toLowerCase() === 'p') {
           this.togglePause();
@@ -91,7 +97,7 @@ window.onload = () => {
 
       startGame() {
         this.gameStarted = true;
-        this.isPaused = false; // Close menu if it was open
+        this.isPaused = false;
         localStorage.setItem('site_unlocked', 'true');
         document.body.classList.remove('scroll-locked');
         this.navigateTo('characters');
@@ -99,7 +105,6 @@ window.onload = () => {
 
       togglePause() {
         this.isPaused = !this.isPaused;
-        // Apply scroll locking based on pause state
         if (this.isPaused) {
           document.body.style.overflow = 'hidden';
         } else {
@@ -108,11 +113,10 @@ window.onload = () => {
       },
 
       navigateTo(sectionId) {
-        // CLOSE THE MENU FIRST
         this.isPaused = false;
-        document.body.style.overflow = 'auto';
+        // Restore overflow based on game state
+        document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
         
-        // Smooth scroll to target
         this.$nextTick(() => {
           const el = document.getElementById(sectionId);
           if (el) {
@@ -123,18 +127,25 @@ window.onload = () => {
 
       addEntry() {
         if (this.submitted || !this.newName.trim() || !this.newMessage.trim()) return;
+        
         const entryData = {
           name: this.newName,
           message: this.newMessage,
           date: new Date().toLocaleDateString()
         };
-        db.ref('guestbook').push(entryData).then(() => {
-          this.submitted = true;
-          this.newName = '';
-          this.newMessage = '';
-          setTimeout(() => { this.submitted = false; }, 3000);
-        });
+
+        db.ref('guestbook').push(entryData)
+          .then(() => {
+            this.submitted = true;
+            this.newName = '';
+            this.newMessage = '';
+            setTimeout(() => { this.submitted = false; }, 3000);
+          })
+          .catch(err => {
+            console.error("Database Write Error:", err);
+            alert("Database Error: Check Console.");
+          });
       }
     }
   }).mount('#guestbook-app');
-};
+});
