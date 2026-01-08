@@ -1,137 +1,65 @@
-/* TERMINAL THEME */
-:root {
-    --terminal-green: #00ff41;
-    --terminal-dark: #0a0a0a;
+.pixel-card-container {
+    perspective: 1000px;
+    height: 300px;
+    cursor: pointer;
 }
 
-body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: var(--terminal-dark);
+.pixel-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.terminal-header-bar {
-    border: 2px solid var(--terminal-green);
-    color: var(--terminal-green);
+.pixel-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 4px solid #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Card Back (Face Down) */
+.card-back {
+    background: #222;
+    background-image: repeating-conic-gradient(#333 0% 25%, #222 0% 50%);
+    background-size: 20px 20px;
+}
+
+.card-rarity {
+    background: #fff;
+    color: #000;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.6rem;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 20px;
 }
 
-.terminal-window {
-    background: #000;
-    border: 2px solid #333;
-    box-shadow: 10px 10px 0px #1a1a1a;
+/* Card Front (Face Up) */
+.card-front {
+    background: #111;
+    transform: rotateY(180deg);
+    border-color: #ffcc00; /* Gold border for revealed cards */
 }
 
-.window-top {
-    background: #333;
-    color: #fff;
+.claim-btn {
+    margin-top: auto;
+    background: #ffcc00;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
     font-size: 0.7rem;
     font-family: 'Press Start 2P', cursive;
-}
-
-/* File Row Styles */
-.file-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #222;
-    text-decoration: none;
-    color: #fff;
-    transition: background 0.2s;
-}
-
-.file-row:hover {
-    background: rgba(0, 255, 65, 0.1);
-    color: var(--terminal-green);
-}
-
-.file-name {
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-.file-size {
-    color: #666;
-    font-size: 0.8rem;
-}
-
-/* Gear List */
-.gear-list {
-    list-style: none;
-    padding: 0;
-}
-
-.gear-list li {
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-}
-
-.gear-cat {
-    color: var(--pixel-gold);
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.system-log {
-    font-size: 0.75rem;
-    color: #008f11;
-}
-
-.log-entry {
-    margin-bottom: 5px;
-}
-
-.back-link {
-    font-family: 'Press Start 2P', cursive;
-    color: #555;
-    text-decoration: none;
-    font-size: 0.7rem;
-}
-
-.back-link:hover {
-    color: #fff;
-}
-
-/* Update gear-cat for the gold RPG feel */
-.gear-cat {
-    color: #ffcc00; /* Pixel Gold */
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-/* Ensure window content has a scroll if too long */
-.window-content {
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #333 #000;
-}
-
-/* Resource grouping titles */
-.gear-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-/* Smooth scaling on window hover */
-.terminal-window {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.terminal-window:hover {
-    transform: translateY(-5px);
-    border-color: var(--terminal-green);
-}
-
-/* Glowing text for active logs */
-.log-entry:last-child {
-    animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
 }

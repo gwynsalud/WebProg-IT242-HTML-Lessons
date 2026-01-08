@@ -6,97 +6,36 @@
     <link rel="stylesheet" href="css/resources.css">
 </head>
 
-<body class="bg-black text-white">
+<body>
 
 <div class="container py-5" id="resources-app" v-cloak>
-    <div class="terminal-header-bar d-flex justify-content-between p-3 mb-5">
-        <div class="system-id">USER: DEVELOPER_01 // CODEX_STATUS: ONLINE</div>
-        <div class="system-clock">{{ currentTime }}</div>
+    <h2 class="rpg-title text-center mb-5">THE SCHOLAR'S DECK</h2>
+
+    <div class="d-flex justify-content-center gap-3 mb-5">
+        <button @click="filter = 'learning'" :class="{'active-tab': filter === 'learning'}" class="pixel-tab">SCROLLS</button>
+        <button @click="filter = 'assets'" :class="{'active-tab': filter === 'assets'}" class="pixel-tab">LOOT</button>
     </div>
 
-    <h2 class="rpg-title mb-4">THE KNOWLEDGE CODEX</h2>
-    <p class="text-secondary mb-5">Accessing ancient scrolls and forbidden tech stacks...</p>
-
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="terminal-window h-100">
-                <div class="window-top p-2">DB_QUERY: /EDUCATION/CORE_LOGIC</div>
-                <div class="window-content p-4">
-                    <div class="resource-group">
-                        <h4 class="gear-title text-warning mb-3">QUEST GUIDES (LEARNING)</h4>
-                        <a href="https://javascript.info/" target="_blank" class="file-row">
-                            <span class="file-info"><span class="file-icon">📚</span> Modern JavaScript Info</span>
-                            <span class="file-size text-success">CORE</span>
-                        </a>
-                        <a href="https://vuejs.org/guide/" target="_blank" class="file-row">
-                            <span class="file-info"><span class="file-icon">⚡</span> Vue.js Documentation</span>
-                            <span class="file-size text-success">V3</span>
-                        </a>
-                        <a href="https://css-tricks.com/" target="_blank" class="file-row">
-                            <span class="file-info"><span class="file-icon">🎨</span> CSS Tricks Almanac</span>
-                            <span class="file-size text-success">STYLE</span>
-                        </a>
+    <div class="row g-4 justify-content-center">
+        <div v-for="(item, index) in filteredResources" :key="index" class="col-md-4 col-sm-6">
+            <div class="pixel-card-container" @click="item.flipped = !item.flipped">
+                <div class="pixel-card" :class="{ 'is-flipped': item.flipped }">
+                    
+                    <div class="card-face card-back">
+                        <div class="card-pattern"></div>
+                        <div class="card-rarity">{{ item.category.toUpperCase() }}</div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-6">
-            <div class="terminal-window h-100">
-                <div class="window-top p-2">DB_QUERY: /ASSETS/VISUAL_GEAR</div>
-                <div class="window-content p-4">
-                    <h4 class="gear-title text-warning mb-3">ARTISAN TOOLS (IMAGES)</h4>
-                    <a href="https://unDraw.co" target="_blank" class="file-row">
-                        <span class="file-info"><span class="file-icon">🖼️</span> unDraw Illustrations</span>
-                        <span class="file-size">SVG</span>
-                    </a>
-                    <a href="https://lucide.dev" target="_blank" class="file-row">
-                        <span class="file-info"><span class="file-icon">✨</span> Lucide Pixel Icons</span>
-                        <span class="file-size">VECTOR</span>
-                    </a>
-                    <a href="https://coolors.co" target="_blank" class="file-row">
-                        <span class="file-info"><span class="file-icon">🌈</span> Coolors Palette Gen</span>
-                        <span class="file-size">COLOR</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <div class="terminal-window">
-                <div class="window-top p-2">SYSTEM_LOG: PROJECT_DEPENDENCIES</div>
-                <div class="window-content p-4">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5 class="text-secondary">[FRAMEWORKS]</h5>
-                            <ul class="gear-list">
-                                <li>Vue.js 3 (CDN)</li>
-                                <li>Bootstrap 5.3</li>
-                                <li>Firebase RTDB</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h5 class="text-secondary">[FONTS]</h5>
-                            <ul class="gear-list">
-                                <li>Press Start 2P</li>
-                                <li>Courier New</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="system-log">
-                                <div class="log-entry">> Cache cleared...</div>
-                                <div class="log-entry">> All resources verified.</div>
-                                <div class="log-entry">> System optimized.</div>
-                            </div>
-                        </div>
+                    <div class="card-face card-front">
+                        <span class="icon">{{ item.icon }}</span>
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.desc }}</p>
+                        <a :href="item.url" target="_blank" class="claim-btn">VIEW RESOURCE</a>
                     </div>
+
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="text-center mt-5">
-        <a href="index.html" class="back-link">← RETURN TO MAIN CAMPAIGN</a>
     </div>
 </div>
 

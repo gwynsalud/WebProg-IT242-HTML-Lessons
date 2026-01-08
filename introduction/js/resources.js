@@ -4,36 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
     createApp({
         data() {
             return {
-                currentTime: '',
-                systemLogs: [
-                    "> Initializing secure connection...",
-                    "> Accessing Forbidden Codex...",
-                    "> All modules up to date."
-                ],
-                activeLogs: []
+                filter: 'learning',
+                resources: [
+                    { 
+                        name: "JS INFO", 
+                        desc: "Master the ancient scripts of JavaScript.",
+                        url: "https://javascript.info",
+                        icon: "📜",
+                        category: "learning",
+                        flipped: false 
+                    },
+                    { 
+                        name: "UNDRAW", 
+                        desc: "Summon vector illustrations for your UI.",
+                        url: "https://undraw.co",
+                        icon: "🖼️",
+                        category: "assets",
+                        flipped: false 
+                    }
+                ]
             }
         },
-        mounted() {
-            // Start the Clock
-            this.updateTime();
-            setInterval(this.updateTime, 1000);
-
-            // Start the Terminal Log Animation
-            this.runSystemLogs();
-        },
-        methods: {
-            updateTime() {
-                const now = new Date();
-                this.currentTime = now.toLocaleTimeString();
-            },
-            runSystemLogs() {
-                // Adds logs one by one for a "loading" effect
-                this.systemLogs.forEach((log, index) => {
-                    setTimeout(() => {
-                        this.activeLogs.push(log);
-                    }, (index + 1) * 800);
-                });
+        computed: {
+            filteredResources() {
+                return this.resources.filter(r => r.category === this.filter);
             }
         }
-    }).mount('#resources-app');
+    }).mount('#guestbook-app');
 });
