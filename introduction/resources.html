@@ -12,51 +12,45 @@
 <body class="bg-black text-white">
 
 <div id="resources-app" v-cloak class="container py-5">
-    
-    <div class="terminal-header-bar d-flex justify-content-between p-3 mb-5">
-        <div class="system-id">USER: SCHOLAR_01 // DECK_STATUS: SYNCED</div>
-        <div class="system-clock">{{ currentTime }}</div>
-    </div>
+    <h2 class="rpg-title text-center mb-4">THE SCHOLAR'S DECK</h2>
 
-    <h2 class="rpg-title text-center mb-2">THE SCHOLAR'S DECK</h2>
-    <p class="text-center text-secondary mb-5">Click a card to reveal the hidden knowledge within.</p>
-
-    <div class="d-flex justify-content-center gap-3 mb-5">
-        <button @click="filter = 'learning'" :class="{'active-tab': filter === 'learning'}" class="pixel-tab">
-            [ SCROLLS ]
-        </button>
-        <button @click="filter = 'assets'" :class="{'active-tab': filter === 'assets'}" class="pixel-tab">
-            [ LOOT ]
-        </button>
+    <div class="category-menu d-flex flex-wrap justify-content-center gap-2 mb-5">
+        <button @click="filter = 'learning'" :class="{'active-tab': filter === 'learning'}" class="pixel-tab">LEARNING</button>
+        <button @click="filter = 'platforms'" :class="{'active-tab': filter === 'platforms'}" class="pixel-tab">PLATFORMS</button>
+        <button @click="filter = 'ai'" :class="{'active-tab': filter === 'ai'}" class="pixel-tab">AI HELP</button>
+        <button @click="filter = 'credits'" :class="{'active-tab': filter === 'credits'}" class="pixel-tab">CREDITS</button>
+        <button @click="filter = 'assets'" :class="{'active-tab': filter === 'assets'}" class="pixel-tab">ASSETS</button>
     </div>
 
     <div class="row g-4 justify-content-center">
-        <div v-for="(item, index) in filteredResources" :key="index" class="col-lg-3 col-md-4 col-sm-6">
+        <div v-for="(item, index) in filteredResources" :key="index" class="col-xl-3 col-lg-4 col-sm-6">
             <div class="pixel-card-container" @click="item.flipped = !item.flipped">
-                <div class="pixel-card" :class="{ 'is-flipped': item.flipped }">
+                <div class="pixel-card" :class="[{ 'is-flipped': item.flipped }, item.category]">
                     
                     <div class="card-face card-back">
-                        <div class="card-inner-border">
-                            <div class="card-pattern"></div>
-                            <div class="rarity-tag">{{ item.category.toUpperCase() }}</div>
+                        <div class="back-design">
+                            <div class="corner top-left">+</div>
+                            <div class="corner top-right">+</div>
+                            <div class="center-logo">?</div>
+                            <div class="corner bottom-left">+</div>
+                            <div class="corner bottom-right">+</div>
                         </div>
                     </div>
 
-                    <div class="card-face card-front" :class="item.category">
-                        <div class="card-header">
-                            <span class="card-icon">{{ item.icon }}</span>
-                            <h3 class="card-name">{{ item.name }}</h3>
+                    <div class="card-face card-front">
+                        <div class="card-type-label">{{ item.category.toUpperCase() }}</div>
+                        <div class="card-body">
+                            <div class="icon-frame">{{ item.icon }}</div>
+                            <h4 class="item-name">{{ item.name }}</h4>
+                            <p class="item-desc">{{ item.desc }}</p>
                         </div>
-                        <p class="card-desc">{{ item.desc }}</p>
-                        <a :href="item.url" target="_blank" class="claim-btn" @click.stop>
-                            OPEN LINK
-                        </a>
+                        <a :href="item.url" target="_blank" class="pixel-btn" @click.stop>OPEN LINK</a>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <div class="text-center mt-5">
         <a href="index.html" class="back-link">← RETURN TO MAIN CAMPAIGN</a>
