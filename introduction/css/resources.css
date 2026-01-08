@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 .rpg-title {
     font-family: 'Press Start 2P', cursive;
     color: var(--pixel-gold);

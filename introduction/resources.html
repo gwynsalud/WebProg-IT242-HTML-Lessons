@@ -11,7 +11,7 @@
 </head>
 <body class="bg-black text-white">
 
-<div id="resources-app" v-cloak class="container py-5">
+<div id="guestbook-app" v-cloak class="container py-5">
     <h2 class="rpg-title text-center mb-4">THE SCHOLAR'S DECK</h2>
 
     <div class="category-menu d-flex flex-wrap justify-content-center gap-2 mb-5">
@@ -23,27 +23,21 @@
     </div>
 
     <div class="row g-4 justify-content-center">
-        <div v-for="(item, index) in filteredResources" :key="index" class="col-xl-3 col-lg-4 col-sm-6">
+        <div v-for="(item, index) in filteredResources" :key="index" class="col-xl-3 col-lg-4 col-md-6">
             <div class="pixel-card-container" @click="item.flipped = !item.flipped">
                 <div class="pixel-card" :class="[{ 'is-flipped': item.flipped }, item.category]">
                     
                     <div class="card-face card-back">
                         <div class="back-design">
-                            <div class="corner top-left">+</div>
-                            <div class="corner top-right">+</div>
                             <div class="center-logo">?</div>
-                            <div class="corner bottom-left">+</div>
-                            <div class="corner bottom-right">+</div>
                         </div>
                     </div>
 
                     <div class="card-face card-front">
                         <div class="card-type-label">{{ item.category.toUpperCase() }}</div>
-                        <div class="card-body">
-                            <div class="icon-frame">{{ item.icon }}</div>
-                            <h4 class="item-name">{{ item.name }}</h4>
-                            <p class="item-desc">{{ item.desc }}</p>
-                        </div>
+                        <div class="icon-frame">{{ item.icon }}</div>
+                        <h4 class="item-name">{{ item.name }}</h4>
+                        <p class="item-desc">{{ item.desc }}</p>
                         <a :href="item.url" target="_blank" class="pixel-btn" @click.stop>OPEN LINK</a>
                     </div>
                 </div>
