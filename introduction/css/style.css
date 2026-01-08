@@ -208,14 +208,6 @@ canvas {
   overflow: hidden;
 }
 
-/* #characters {
-  position: relative;
-  background-color: var(--pixel-section-mid);
-  color: var(--pixel-white);
-  min-height: 100vh; 
-  overflow: hidden;
-} */
-
 #characters .section-header {
   font-size: clamp(1.2rem, 2.5vw, 2rem); 
   color: #fff;
@@ -506,11 +498,20 @@ canvas {
 }
 
 /* ===== ABOUT ME / PERSONAL PROFILE ===== */
-#about {
+/* #about {
   position: relative;
   background-color: var(--pixel-section-dark);
   min-height: 100vh;
   padding: 100px 0 50px 0;
+} */
+
+#about {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('https://i.pinimg.com/originals/92/33/80/92338017c079bea4f1250ed4a3056117.gif') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 .section-header-about {
