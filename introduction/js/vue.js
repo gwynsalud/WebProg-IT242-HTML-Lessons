@@ -37,22 +37,18 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("1. App starting...");
-
-  // --- 1. FIREBASE SETUP ---
+  // --- 1. FIREBASE CONFIGURATION ---
   const firebaseConfig = {
-    databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/", 
+    databaseURL: "https://rpg-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/",
   };
   
-  // Initialize Firebase (Safeguard against double-init)
   if (typeof firebase === 'undefined') {
-    console.error("Firebase SDK not loaded! Check your HTML script tags.");
+    console.error("Firebase SDK not loaded");
     return;
   }
   
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
-    console.log("2. Firebase initialized");
   }
   const db = firebase.database();
 
@@ -62,53 +58,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = createApp({
     data() {
       return {
+        // Game State
         gameStarted: false,
         isPaused: false,
+        
+        // Guestbook Data
         newName: '',
         newMessage: '',
         submitted: false,
-        entries: [] // This holds your data
+        entries: []
       }
     },
     mounted() {
-      console.log("3. Vue Mounted successfully!");
-      
-      // Initialize Scroll Lock
+      // A. INITIALIZATION
       this.checkInitialLock();
-
-      // --- LISTEN FOR DATA ---
-      console.log("4. Listening for database changes...");
-      const guestbookRef = db.ref('guestbook');
       
-      guestbookRef.on('value', (snapshot) => {
+      // B. FIREBASE LISTENER
+      db.ref('guestbook').on('value', (snapshot) => {
         const data = snapshot.val();
-        console.log("5. Data received from Firebase:", data); // Check your Console for this!
-
         if (data) {
-          // Convert object (Firebase format) to Array (Vue format)
-          this.entries = Object.keys(data).map(key => {
-            return { 
-              id: key, 
-              ...data[key] 
-            };
-          }).reverse(); // Show newest first
+          this.entries = Object.keys(data).map(key => data[key]).reverse();
         } else {
-          console.warn("Database is empty or path is wrong.");
           this.entries = [];
         }
-      }, (error) => {
-        console.error("Firebase Read Error:", error);
-        alert("Cannot load guestbook. Check console for permission errors.");
       });
 
-      // Keyboard Shortcuts
+      // C. KEYBOARD SHORTCUTS
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' || e.key.toLowerCase() === 'p') {
           this.togglePause();
         }
       });
+
+      // --- D. MERGED SKILLS & SCROLL LOGIC ---
+      // We use $nextTick to ensure Vue has finished drawing the HTML first
+      this.$nextTick(() => {
+        this.initSkillHoverEffects();
+        this.initScrollToTop();
+      });
     },
     methods: {
+      // --- ORIGINAL METHODS ---
       checkInitialLock() {
         const unlocked = localStorage.getItem('site_unlocked');
         if (unlocked === 'true') {
@@ -135,12 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
       navigateTo(sectionId) {
         this.isPaused = false;
         document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
-        
         this.$nextTick(() => {
           const el = document.getElementById(sectionId);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          }
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
         });
       },
 
@@ -153,22 +140,52 @@ document.addEventListener('DOMContentLoaded', () => {
           date: new Date().toLocaleDateString()
         };
 
-        db.ref('guestbook').push(entryData)
-          .then(() => {
-            this.submitted = true;
-            this.newName = '';
-            this.newMessage = '';
-            setTimeout(() => { this.submitted = false; }, 3000);
-          })
-          .catch(err => {
-            console.error("Database Write Error:", err);
-            alert("Could not write to database. Check rules.");
+        db.ref('guestbook').push(entryData).then(() => {
+          this.submitted = true;
+          this.newName = '';
+          this.newMessage = '';
+          setTimeout(() => { this.submitted = false; }, 3000);
+        });
+      },
+
+      // --- NEW METHODS FOR SKILLS & SCROLL ---
+      
+      initSkillHoverEffects() {
+        // This replaces your separate querySelectorAll script
+        const skillItems = document.querySelectorAll('.skill-item');
+        const descBox = document.getElementById('skill-desc');
+
+        if (skillItems.length > 0 && descBox) {
+          skillItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+              const skill = item.getAttribute('data-skill');
+              const mastery = item.getAttribute('data-mastery');
+              descBox.innerText = `SKILL: ${skill} | CLASS: ${mastery}`;
+            });
+            
+            item.addEventListener('mouseleave', () => {
+              descBox.innerText = "Hover over a skill to see mastery level.";
+            });
           });
+        }
+      },
+
+      initScrollToTop() {
+        // This replaces your window.onscroll script
+        const scrollBtn = document.getElementById("scroll-to-top");
+        
+        if (scrollBtn) {
+          window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+              scrollBtn.classList.add("visible");
+            } else {
+              scrollBtn.classList.remove("visible");
+            }
+          });
+        }
       }
     }
   });
 
-  // MOUNT TO THE DIV
-  // Make sure your HTML has <div id="guestbook-app"> wrapping the content
   app.mount('#guestbook-app');
 });
