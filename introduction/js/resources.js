@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // LEARNING
                     { name: "MDN WEB DOCS", desc: "The definitive encyclopedia for web developers.", url: "https://developer.mozilla.org", icon: "📖", category: "learning", flipped: false },
                     { name: "CSS TRICKS", desc: "Mastering the art of modern layouts.", url: "https://css-tricks.com", icon: "🎨", category: "learning", flipped: false },
+                    { name: "W3SCHOOLS", desc: "The classic training grounds for web sorcery and coding basics.", url: "https://www.w3schools.com", icon: "🏫", category: "learning", flipped: false },
+                    { name: "KHAN ACADEMY", desc: "A vast library of universal knowledge for the aspiring polymath.", url: "https://www.khanacademy.org", icon: "🌳", category: "learning", flipped: false },
 
                     // PLATFORMS
                     { name: "FIREBASE", desc: "Backend engine for our real-time guestbook.", url: "https://firebase.google.com", icon: "🔥", category: "platforms", flipped: false },
