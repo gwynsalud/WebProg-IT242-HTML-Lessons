@@ -81,10 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       togglePause() {
-        if (!this.gameStarted) {
-          console.log("Game not started: Pause disabled");
-          return;
-        }
+        // if (!this.gameStarted) {
+        //   console.log("Game not started: Pause disabled");
+        //   return;
+        // }
 
         this.isPaused = !this.isPaused;
 
