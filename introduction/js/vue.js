@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           document.body.style.overflow = ''; 
         }
-      }
+      },
       navigateTo(sectionId) {
         this.isPaused = false;
         document.body.style.overflow = ''; // Ensure scrolling is restored
