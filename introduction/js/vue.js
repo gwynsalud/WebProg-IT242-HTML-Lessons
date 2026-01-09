@@ -82,29 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       togglePause() {
         if (!this.gameStarted) return;
-
         this.isPaused = !this.isPaused;
-
+        
         if (this.isPaused) {
-          document.body.classList.add('scroll-locked');
           document.body.style.overflow = 'hidden';
         } else {
-          document.body.classList.remove('scroll-locked');
-          document.body.style.overflow = '';
+          document.body.style.overflow = ''; 
         }
       },
       navigateTo(sectionId) {
         this.isPaused = false;
+        document.body.style.overflow = ''; // Ensure scrolling is restored
         
-        // Force scroll to be enabled
-        document.body.classList.remove('scroll-locked');
-        document.body.style.overflow = ''; 
-
         this.$nextTick(() => {
           const el = document.getElementById(sectionId);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          }
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
         });
       },
 
