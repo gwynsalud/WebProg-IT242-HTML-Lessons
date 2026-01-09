@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // C. KEYBOARD SHORTCUTS
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' || e.key.toLowerCase() === 'p') {
+        const isTyping = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+        if (!isTyping && (e.key === 'Escape' || e.key.toLowerCase() === 'p')) {
           this.togglePause();
         }
       });
@@ -80,16 +81,30 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       togglePause() {
-        this.isPaused = !this.isPaused;
-        document.body.style.overflow = this.isPaused ? 'hidden' : (this.gameStarted ? 'auto' : 'hidden');
-      },
+        if (!this.gameStarted) return;
 
+        this.isPaused = !this.isPaused;
+
+        if (this.isPaused) {
+          document.body.classList.add('scroll-locked');
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.classList.remove('scroll-locked');
+          document.body.style.overflow = '';
+        }
+      },
       navigateTo(sectionId) {
         this.isPaused = false;
-        document.body.style.overflow = this.gameStarted ? 'auto' : 'hidden';
+        
+        // Force scroll to be enabled
+        document.body.classList.remove('scroll-locked');
+        document.body.style.overflow = ''; 
+
         this.$nextTick(() => {
           const el = document.getElementById(sectionId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
         });
       },
 
