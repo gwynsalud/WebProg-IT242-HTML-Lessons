@@ -81,15 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       togglePause() {
-        if (!this.gameStarted) return;
+        if (!this.gameStarted) {
+          console.log("Game not started: Pause disabled");
+          return;
+        }
+
         this.isPaused = !this.isPaused;
-        
+
         if (this.isPaused) {
           document.body.style.overflow = 'hidden';
         } else {
           document.body.style.overflow = ''; 
         }
-      },
+      }
       navigateTo(sectionId) {
         this.isPaused = false;
         document.body.style.overflow = ''; // Ensure scrolling is restored
