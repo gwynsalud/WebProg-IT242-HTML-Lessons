@@ -1820,6 +1820,6 @@ canvas {
     50% { transform: translateY(-5px); }
 }
 
-[data-v-cloak] {
+[v-cloak] {
   display: none !important;
 }
