@@ -1,4 +1,4 @@
-/* 1. VARIABLE DEFINITIONS */
+/* ===== VARIABLE DEFINITIONS ===== */
 :root {
     --color-learning: #ffcc00;
     --color-platforms: #00ccff;
@@ -8,7 +8,7 @@
     --pixel-gold: #ffcc00;
 }
 
-/* 2. CORE LAYOUT */
+/* ===== CORE LAYOUT ===== */
 body {
     background-color: #0a0a0a;
     color: white;
@@ -27,13 +27,12 @@ body {
     letter-spacing: 2px;
 }
 
-/* 3. GRID & CONTAINER */
+/* ===== GRID & CONTAINER ===== */
 .container {
     max-width: 1200px;
     margin-top: 50px;
 }
 
-/* Force cards into a "Trading Card" aspect ratio */
 .pixel-card-container {
     perspective: 1000px;
     height: 400px;
@@ -54,7 +53,7 @@ body {
     transform: rotateY(180deg);
 }
 
-/* 4. CARD FACES */
+/* ===== CARD FACES ===== */
 .card-face {
     position: absolute;
     width: 100%;
@@ -64,7 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Keeps label top, button bottom */
+    justify-content: space-between;
     box-sizing: border-box;
     background: #111;
     border: 4px solid #444;
@@ -91,14 +90,14 @@ body {
     text-align: center;
 }
 
-/* 5. CATEGORY GLOWS & BORDERS */
+/* ===== CATEGORY GLOWS & BORDERS ===== */
 .pixel-card.learning .card-face { border-color: var(--color-learning); box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); }
 .pixel-card.platforms .card-face { border-color: var(--color-platforms); box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
 .pixel-card.ai .card-face { border-color: var(--color-ai); box-shadow: 0 0 15px rgba(163, 102, 255, 0.2); }
 .pixel-card.credits .card-face { border-color: var(--color-credits); box-shadow: 0 0 15px rgba(255, 102, 170, 0.2); }
 .pixel-card.assets .card-face { border-color: var(--color-assets); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); }
 
-/* 6. CARD CONTENT */
+/* ===== CARD CONTENT ===== */
 .card-type-label {
     background: #000;
     padding: 4px 10px;
@@ -131,14 +130,13 @@ body {
     color: #888;
     line-height: 1.4;
     margin: 10px 0;
-    /* Limit text so it doesn't break the card height */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* 7. TABS & BUTTONS */
+/* ===== TABS & BUTTONS ===== */
 .pixel-tab {
     background: #111;
     border: 2px solid #333;

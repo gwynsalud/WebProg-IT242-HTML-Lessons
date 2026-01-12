@@ -48,7 +48,6 @@ canvas {
 
 /* ===== PIXEL DESIGN SYSTEM (GLOBAL ELEMENTS) ===== */
 .rpg-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: 1.5rem;
   margin-bottom: 60px;
   color: var(--pixel-white);
@@ -57,7 +56,6 @@ canvas {
 }
 
 .rpg-subtitle {
-  font-family: 'Press Start 2P', cursive;
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   color: var(--pixel-gold);
   text-shadow: 3px 3px 0px #000;
@@ -66,7 +64,6 @@ canvas {
 }
 
 .pixel-text {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.75rem;
   margin-bottom: 30px;
   animation: pulse 1.5s infinite; 
@@ -74,7 +71,6 @@ canvas {
 
 .rpg-btn-gold {
   all: unset;
-  font-family: 'Press Start 2P', cursive;
   font-size: 1rem;
   background-color: var(--pixel-gold);
   color: #000 !important;
@@ -108,7 +104,6 @@ canvas {
 
 .rpg-btn {
   all: unset;
-  font-family: 'Press Start 2P', cursive !important;
   font-size: 1rem;
   background-color: #2ed573;
   color: white !important;
@@ -149,7 +144,6 @@ canvas {
   z-index: 10000;
   background: #ffcc00;
   border: 3px solid #000;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
   padding: 10px 15px;
   box-shadow: 4px 4px 0px #000;
@@ -171,14 +165,12 @@ canvas {
 }
 
 .menu-title {
-  font-family: 'Press Start 2P', cursive;
   color: #fff;
   text-shadow: 4px 4px #ff0000;
 }
 
 .menu-links a {
   display: block;
-  font-family: 'Press Start 2P', cursive;
   font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
@@ -205,7 +197,7 @@ canvas {
    ======================================== */
 
 /* =============== START MENU =============== */
-/* Only titles inside the Start Menu will flicker */
+
 #start-menu {
   background: 
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
@@ -236,7 +228,6 @@ canvas {
 }
 
 #start-menu .rpg-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: clamp(2.5rem, 5vw, 3.5rem); 
   letter-spacing: 4px;
   color: #fff;
@@ -356,7 +347,6 @@ canvas {
 }
 
 .rpg-card-label {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
   text-align: center;
   margin-top: auto;
@@ -471,7 +461,6 @@ canvas {
 }
 
 .stat-header {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.8rem;
   color: var(--pixel-gold);
   margin-bottom: 15px;
@@ -573,7 +562,6 @@ canvas {
   position: absolute;
   top: 40px;
   left: 10%;
-  font-family: 'Press Start 2P', cursive;
   font-size: clamp(1.2rem, 4vw, 2rem);
   color: var(--pixel-gold); 
   text-shadow: 4px 4px 0px #000;
@@ -591,9 +579,9 @@ canvas {
   box-shadow: 4px 4px 0px #000;
 }
 
-/* QUEST NOTIFICATION - Pushed lower */
+/* QUEST NOTIFICATION */
 .quest-anchor {
-  margin-top: 60px; /* Increased to lower placement */
+  margin-top: 60px;
   margin-bottom: 30px;
   perspective: 1000px;
   width: 100%;
@@ -622,20 +610,17 @@ canvas {
 }
 
 .quest-icon {
-  font-family: 'Press Start 2P', cursive;
   color: #000;
   animation: jump 0.6s infinite steps(2);
 }
 
 .quest-status {
   display: block;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
   color: var(--pixel-gold);
 }
 
 .quest-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.8rem;
   color: #fff;
   text-transform: uppercase;
@@ -648,10 +633,10 @@ canvas {
   align-items: center !important; 
 }
 
-/* PROFILE GROUP - Fixes Portrait Alignment */
+/* PROFILE GROUP */
 .profile-group {
   display: flex;
-  align-items: flex-start; /* Keeps portrait aligned with the top of dialogue */
+  align-items: flex-start;
 }
 
 /* PORTRAIT */
@@ -662,7 +647,7 @@ canvas {
   border: 4px solid #fff;
   box-shadow: 4px 4px 0px #000;
   flex-shrink: 0;
-  margin-top: 5px; /* Tiny adjustment to match dialogue top border */
+  margin-top: 5px;
 }
 
 .pixel-portrait {
@@ -687,13 +672,11 @@ canvas {
   background: #fff;
   color: #000;
   padding: 4px 12px;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
   z-index: 5;
 }
 
 .dialogue-content {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.85rem;
   line-height: 1.8;
   color: #fff;
@@ -710,7 +693,6 @@ canvas {
 }
 
 .lore-item {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
   color: #fff;
 }
@@ -945,7 +927,6 @@ canvas {
 
 /* RPG Elements */
 .status-badge {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.45rem;
   padding: 4px 8px;
   border: 1px solid;
@@ -954,7 +935,6 @@ canvas {
 .status-badge.leveling { color: #0f0; border-color: #0f0; }
 
 .xp-label {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.5rem;
   color: #aaa;
   margin-bottom: 6px;
@@ -985,7 +965,6 @@ canvas {
   border: 1px solid #555;
   padding: 5px 10px;
   font-size: 0.55rem;
-  font-family: 'Press Start 2P', cursive;
   color: #fff;
 }
 
@@ -999,7 +978,7 @@ canvas {
   border-left: 3px solid #444;
   padding-left: 15px;
   margin: 15px 0;
-  text-align: left; /* Keep text readable regardless of side */
+  text-align: left;
 }
 
 /* RESPONSIVE FIX */
@@ -1020,7 +999,6 @@ canvas {
   padding: 15px 30px;
   text-decoration: none;
   color: #000;
-  font-family: 'Press Start 2P', cursive;
   box-shadow: 6px 6px 0px #000;
   transition: all 0.1s steps(2);
 }
@@ -1118,7 +1096,6 @@ canvas {
 }
 
 .skill-label {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.45rem;
   color: #aaa;
 }
@@ -1127,7 +1104,6 @@ canvas {
 .skill-info-footer {
   background: #000;
   border: 2px dashed #444;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
   color: #0f0;
   min-height: 60px;
@@ -1152,7 +1128,6 @@ canvas {
     border: 4px solid #fff;
     color: #fff;
     text-decoration: none;
-    font-family: 'Press Start 2P', cursive;
     position: relative;
     box-shadow: 8px 8px 0px var(--pixel-gold);
     transition: all 0.1s steps(2);
@@ -1254,7 +1229,6 @@ canvas {
 }
 
 .loot-label {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.5rem;
   color: #0f0;
 }
@@ -1291,9 +1265,8 @@ canvas {
     border: 4px solid #fff;
     color: #fff;
     text-decoration: none;
-    font-family: 'Press Start 2P', cursive;
     position: relative;
-    box-shadow: 8px 8px 0px #0f0; /* Green for "Go/Proceed" */
+    box-shadow: 8px 8px 0px #0f0;
     transition: all 0.1s steps(2);
 }
 
@@ -1325,19 +1298,19 @@ canvas {
 
 /* INTERESTS SECTION */
 .notice-board {
-  background: #3d251e; /* Dark wood color */
+  background: #3d251e;
   border: 10px solid #2a1813;
   box-shadow: inset 0 0 50px #000, 10px 10px 0 #000;
   min-height: 400px;
 }
 
 .quest-note {
-  background: #f4e4bc; /* Aged paper color */
+  background: #f4e4bc;
   padding: 20px;
   position: relative;
   border: 2px solid #d2b48c;
   box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
-  transform: rotate(-1deg); /* Slight tilt for realism */
+  transform: rotate(-1deg);
   transition: transform 0.2s steps(2);
   height: 100%;
 }
@@ -1360,13 +1333,11 @@ canvas {
 }
 
 .quest-type {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.5rem;
   color: #8b4513;
 }
 
 .quest-interest {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.8rem;
   color: #000;
   margin: 10px 0;
@@ -1381,7 +1352,6 @@ canvas {
 
 .quest-reward {
   margin-top: 15px;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.45rem;
   color: #2e8b57;
   border-top: 1px dashed #d2b48c;
@@ -1434,7 +1404,7 @@ canvas {
     border: 3px solid #333;
     padding: 30px;
     position: relative;
-    overflow: hidden; /* Important for scanline */
+    overflow: hidden;
     box-shadow: 10px 10px 0px #000;
     transition: all 0.3s steps(4);
 }
@@ -1461,18 +1431,17 @@ canvas {
     100% { top: 100%; }
 }
 
-/* DECRYPTING STYLE (Green/Tech) */
+/* DECRYPTING STYLE */
 .decryption-active {
     border-color: #0f0;
 }
 .decryption-active .goal-title {
     color: #fff;
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.8rem;
     text-shadow: 2px 2px 0px #050;
 }
 
-/* LEGENDARY GLITCH STYLE (Pink/Purple) */
+/* LEGENDARY GLITCH STYLE */
 .legendary-glitch {
     border-color: #ff00ff;
 }
@@ -1490,13 +1459,11 @@ canvas {
 
 /* UI ELEMENTS */
 .goal-status {
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.5rem;
     color: #0f0;
 }
 
 .goal-rarity {
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.5rem;
 }
 
@@ -1512,7 +1479,6 @@ canvas {
     margin-top: 20px;
 }
 .loading-label {
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.45rem;
     color: #555;
     margin-bottom: 8px;
@@ -1559,10 +1525,9 @@ canvas {
     display: inline-block;
     padding: 22px 45px;
     background: #000;
-    border: 4px double #00d4ff; /* Double border for "Magic" feel */
+    border: 4px double #00d4ff;
     color: #fff;
     text-decoration: none;
-    font-family: 'Press Start 2P', cursive;
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
     transition: all 0.2s steps(2);
 }
@@ -1585,7 +1550,7 @@ canvas {
 }
 
 .memory-shard {
-    background: #fff; /* Classic Polaroid look */
+    background: #fff;
     padding: 15px 15px 40px 15px;
     border: 2px solid #ddd;
     box-shadow: 8px 8px 0px rgba(0,0,0,0.5);
@@ -1593,7 +1558,6 @@ canvas {
     transform: rotate(var(--rotation, -2deg));
 }
 
-/* Give each shard a random-looking rotation */
 .memory-shard:nth-child(even) { --rotation: 2deg; }
 .memory-shard:nth-child(3n) { --rotation: -1.5deg; }
 
@@ -1626,7 +1590,6 @@ canvas {
 
 .shard-caption {
     margin-top: 15px;
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.5rem;
     color: #333;
     text-align: center;
@@ -1634,7 +1597,6 @@ canvas {
 
 /* BUTTON TO RESOURCES */
 .loading-dots span {
-    font-family: 'Press Start 2P', cursive;
     color: var(--pixel-gold);
     animation: dot-pulse 1.5s infinite;
 }
@@ -1649,11 +1611,10 @@ canvas {
 .rpg-btn-teleport {
     display: inline-block;
     padding: 20px 40px;
-    background: #1a0033; /* Deep magical purple */
+    background: #1a0033;
     border: 4px solid #9d00ff;
     color: #fff;
     text-decoration: none;
-    font-family: 'Press Start 2P', cursive;
     box-shadow: 0 0 15px #9d00ff;
     transition: all 0.3s steps(2);
 }
@@ -1662,7 +1623,7 @@ canvas {
     background: #9d00ff;
     color: #fff;
     box-shadow: 0 0 30px #9d00ff;
-    letter-spacing: 2px; /* Visual "warp" effect */
+    letter-spacing: 2px;
 }
 
 .teleport-sub {
@@ -1722,7 +1683,6 @@ canvas {
 }
 
 .quest-label {
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.6rem;
   color: #aaa;
 }
@@ -1794,7 +1754,6 @@ canvas {
     border: 3px solid #fff;
     color: #fff;
     padding: 10px 15px;
-    font-family: 'Press Start 2P', cursive;
     font-size: 0.6rem;
     display: flex;
     align-items: center;
