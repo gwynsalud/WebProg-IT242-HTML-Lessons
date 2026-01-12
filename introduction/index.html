@@ -19,8 +19,8 @@
 </head>
 
 <body>
-  <div id="guestbook-app" v-cloak>
-  <button class="pause-btn" @click="togglePause" style="z-index: 10000;">
+  <div id="guestbook-app" data-v-cloak>
+  <button class="pause-btn" @click="togglePause">
     <span v-if="!isPaused">〓 PAUSE</span>
     <span v-else>▶ RESUME</span>
   </button>

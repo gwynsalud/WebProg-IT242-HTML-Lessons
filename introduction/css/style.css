@@ -146,7 +146,7 @@ canvas {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 9999;
+  z-index: 10000;
   background: #ffcc00;
   border: 3px solid #000;
   font-family: 'Press Start 2P', cursive;
@@ -1820,6 +1820,6 @@ canvas {
     50% { transform: translateY(-5px); }
 }
 
-[v-cloak] {
+[data-v-cloak] {
   display: none !important;
 }
